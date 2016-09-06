@@ -7,8 +7,8 @@ describe('d3-ng2-demo App', function() {
     page = new D3Ng2DemoPage();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
-  });
+  // it('should display message saying D3 Demo', () => {
+  //   page.navigateTo();
+  //   expect(page.getParagraphText()).toEqual('D3 Demo');
+  // });
 });

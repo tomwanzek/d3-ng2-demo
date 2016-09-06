@@ -18,10 +18,10 @@ describe('App: D3Ng2Demo', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'app works!'`, async(() => {
+  it(`should have as title 'D3 Demo'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('D3 Demmo');
+    expect(app.title).toEqual('D3 Demo');
   }));
 
   // it('should render title in a h1 tag', async(() => {
