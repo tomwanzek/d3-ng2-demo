@@ -14,7 +14,6 @@ before_install:
 
 install:
   - npm install
-  - npm install awesome-typescript-loader@2.2.1 --save-dev
 
 before_script:
   - ng build
