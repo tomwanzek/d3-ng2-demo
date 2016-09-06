@@ -14,6 +14,8 @@ before_install:
   - npm install -g angular-cli@webpack
 
 before_script:
+  - npm uninstall typescript --save-dev
+  - npm install typescript@beta --save-dev
   - ng build
 
 script:
