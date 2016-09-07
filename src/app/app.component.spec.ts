@@ -3,12 +3,13 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+
 describe('App: D3Ng2Demo', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
-      ],
+      ]
     });
   });
 
@@ -24,10 +25,39 @@ describe('App: D3Ng2Demo', () => {
     expect(app.title).toEqual('D3 Demo');
   }));
 
-  // it('should render title in a h1 tag', async(() => {
-  //   let fixture = TestBed.createComponent(AppComponent);
-  //   fixture.detectChanges();
-  //   let compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('app works!');
-  // }));
+  it(`should render title 'D3 Demo' in a span of class 'navbar-brand'`, async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('span.navbar-brand').textContent).toContain('D3 Demo');
+  }));
+
+  it(`should contain an 'app-test-brush-zoom-2' component`, async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-test-brush-zoom-2')).toBeTruthy();
+  }));
+
+  it(`should contain an 'app-test-brush-zoom-2' component`, async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-test-brush-zoom-2')).toBeTruthy();
+  }));
+
+  it(`should contain an 'app-test-voronoi-spirals-3' component`, async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-test-voronoi-spirals-3')).toBeTruthy();
+  }));
+
+  it(`should contain an 'app-test-drag-zoom-2' component`, async(() => {
+    let fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-test-drag-zoom-2')).toBeTruthy();
+  }));
+
 });
