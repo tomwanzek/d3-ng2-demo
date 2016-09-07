@@ -3,8 +3,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { TestBrushZoom2Component } from './test-brush-zoom-2.component';
 
-import { ElementRef } from '@angular/core';
-import { D3Service } from 'd3-ng2-service';
+import { D3Service, D3 } from 'd3-ng2-service';
 
 describe('Component: TestBrushZoom2', () => {
   beforeEach(() => {
@@ -24,10 +23,13 @@ describe('Component: TestBrushZoom2', () => {
     expect(component).toBeTruthy();
   }));
 
-  it('should have a d3 member', async(() => {
+  it('should have a d3 member with  relevant D3 members', async(() => {
     let fixture = TestBed.createComponent(TestBrushZoom2Component);
     let component = fixture.debugElement.componentInstance;
-    expect(component.d3).toBeTruthy();
+    let d3: D3 | undefined = component.d3;
+    expect(d3).toBeTruthy('No member d3 defined');
+    expect(d3 && d3.brush && typeof d3.brush === 'function').toBeTruthy('Member function brush() of d3 not defined');
+    expect(d3 && d3.zoom && typeof d3.zoom === 'function').toBeTruthy('Member function zoom() of d3 not defined');
   }));
 
   it(`should have heading h2 with text 'Brush & Zoom II (SVG) Example'`, async(() => {
