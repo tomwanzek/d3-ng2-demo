@@ -5,6 +5,8 @@ import { TestVoronoiSpirals3Component } from './test-voronoi-spirals-3.component
 
 import { D3Service, D3 } from 'd3-ng2-service';
 
+// TODO: The test for this component are subject to angular issue https://github.com/angular/angular/issues/10127
+
 describe('Component: TestVoronoiSpirals3', () => {
 
   beforeEach(() => {

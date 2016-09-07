@@ -3,13 +3,25 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+import { TestDragZoom2Component } from './d3-tests/test-drag-zoom-2/test-drag-zoom-2.component';
+import { TestBrushZoom2Component } from './d3-tests/test-brush-zoom-2/test-brush-zoom-2.component';
+import { TestVoronoiSpirals3Component } from './d3-tests/test-voronoi-spirals-3/test-voronoi-spirals-3.component';
+
+import { D3Service } from 'd3-ng2-service';
 
 describe('App: D3Ng2Demo', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
-      ]
+        AppComponent,
+        TestBrushZoom2Component,
+        TestDragZoom2Component
+
+        // TODO: The below component is omitted due to angular issue https://github.com/angular/angular/issues/10127
+
+        // TestVoronoiSpirals3Component
+      ],
+      providers: [D3Service]
     });
   });
 

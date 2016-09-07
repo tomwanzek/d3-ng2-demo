@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-interface DragZoom2Layout {
+export interface DragZoom2Layout {
   name: string;
   label: string;
   width: number;
@@ -8,9 +8,6 @@ interface DragZoom2Layout {
   phylloRadius: number;
   pointRadius: number;
 }
-
-
-
 
 @Component({
   selector: 'app-root',
