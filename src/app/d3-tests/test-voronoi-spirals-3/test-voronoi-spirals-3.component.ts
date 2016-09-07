@@ -3,23 +3,28 @@
  * Mike Bostock at https://bl.ocks.org/mbostock/c677b9bb3c926ba13f3a902acb006b0c
  */
 
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
-import { D3Service, D3, RGBColor, Selection, VoronoiPolygon } from 'd3-ng2-service';
+import { D3Service, D3, RGBColor, Selection, Timer, VoronoiPolygon } from 'd3-ng2-service';
 
 @Component({
   selector: 'app-test-voronoi-spirals-3',
   templateUrl: './test-voronoi-spirals-3.component.html',
   styleUrls: ['./test-voronoi-spirals-3.component.css']
 })
-export class TestVoronoiSpirals3Component implements OnInit {
+export class TestVoronoiSpirals3Component implements OnInit, OnDestroy {
 
   private d3: D3;
   private parentNativeElement: any;
+  private timer: Timer;
 
   constructor(element: ElementRef, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
+  }
+
+  ngOnDestroy() {
+    this.timer.stop();
   }
 
   ngOnInit() {
@@ -95,7 +100,7 @@ export class TestVoronoiSpirals3Component implements OnInit {
 
       context.clearRect(0, 0, width, height);
 
-      d3.timer(function (elapsed) {
+      this.timer = d3.timer(function (elapsed) {
         for (let i = 0, y = 0; y < height; ++y) {
           for (let x = 0; x < width; ++x, i += 4) {
             let c = colors[Math.floor(source[i] + elapsed / 10) % 256];

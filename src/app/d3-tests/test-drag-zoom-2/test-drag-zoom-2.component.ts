@@ -3,7 +3,7 @@
  * Mike Bostock at https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084
  */
 
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
 import { D3Service, D3, D3DragEvent, D3ZoomEvent, Selection } from 'd3-ng2-service';
 import { phyllotaxis, PhyllotaxisPoint } from '../shared';
@@ -13,7 +13,7 @@ import { phyllotaxis, PhyllotaxisPoint } from '../shared';
   templateUrl: './test-drag-zoom-2.component.html',
   styleUrls: ['./test-drag-zoom-2.component.css']
 })
-export class TestDragZoom2Component implements OnInit {
+export class TestDragZoom2Component implements OnInit, OnDestroy {
 
   private d3: D3;
   private parentNativeElement: any;
@@ -22,6 +22,18 @@ export class TestDragZoom2Component implements OnInit {
   constructor(element: ElementRef, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
+  }
+
+  ngOnDestroy() {
+    let d3 = this.d3;
+    let d3ParentElement: Selection<any, any, any, any>;
+    let svg: Selection<SVGSVGElement, any, any, any>;
+
+    d3ParentElement = d3.select(this.parentNativeElement);
+
+    svg = d3ParentElement.select<SVGSVGElement>('svg');
+
+    svg.selectAll('*').remove();
   }
 
   ngOnInit() {

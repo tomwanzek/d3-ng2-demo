@@ -3,7 +3,7 @@
  * Mike Bostock at https://bl.ocks.org/mbostock/f48fcdb929a620ed97877e4678ab15e6
  */
 
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
 import {
   D3Service,
@@ -24,7 +24,7 @@ import {
   templateUrl: './test-brush-zoom-2.component.html',
   styleUrls: ['./test-brush-zoom-2.component.css']
 })
-export class TestBrushZoom2Component implements OnInit {
+export class TestBrushZoom2Component implements OnInit, OnDestroy {
 
   private d3: D3;
   private parentNativeElement: any;
@@ -33,6 +33,18 @@ export class TestBrushZoom2Component implements OnInit {
   constructor(element: ElementRef, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
+  }
+
+  ngOnDestroy() {
+    let d3 = this.d3;
+    let d3ParentElement: Selection<any, any, any, any>;
+    let svg: Selection<SVGSVGElement, any, any, any>;
+
+    d3ParentElement = d3.select(this.parentNativeElement);
+
+    svg = d3ParentElement.select<SVGSVGElement>('svg');
+
+    svg.selectAll('*').remove();
   }
 
   ngOnInit() {
@@ -87,8 +99,7 @@ export class TestBrushZoom2Component implements OnInit {
       // HACK: Define transition againt Group Element type `any`
       // This way it can be reused on SVGGElement and SVGCircleElement, although
       // it was defined on the SVGSVGElement.
-      // TODO: Double check, if definitions for Selection.transition(...) should be relaxed,
-      // to allow Transition<any, any, any, any> as input
+      // TODO: Update after pending PR with Relaxed constraint is published to DT/@types
       let t: Transition<any, any, any, any> = svg.transition().duration(750);
       svg.select<SVGGElement>('.axis--x').transition(t).call(xAxis);
       svg.select<SVGGElement>('.axis--y').transition(t).call(yAxis);
