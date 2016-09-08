@@ -25,11 +25,12 @@ describe('Component: WrapperBrushZoom2', () => {
     expect(component).toBeTruthy();
   }));
 
-  it(`should have heading h2 with text 'Brush & Zoom II (SVG) Example'`, async(() => {
+  it(`should have heading h2 with text 'Brush & Zoom II'`, async(() => {
     let fixture = TestBed.createComponent(WrapperBrushZoom2Component);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toBe('Brush & Zoom II (SVG) Example');
+    let h3: HTMLHeadingElement | null = compiled.querySelector('h3') || null;
+    expect(h3 && h3.textContent).toBe('Brush & Zoom II');
   }));
 
 });

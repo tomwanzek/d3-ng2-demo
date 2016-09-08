@@ -26,11 +26,12 @@ describe('Component: WrapperDragZoom2', () => {
     expect(component).toBeTruthy();
   }));
 
-  it(`should have heading h2 with text 'Drag & Zoom II (SVG) Example'`, async(() => {
+  it(`should have heading h2 with text 'Drag & Zoom II'`, async(() => {
     let fixture = TestBed.createComponent(WrapperDragZoom2Component);
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toBe('Drag & Zoom II Example');
+    let h3: HTMLHeadingElement | null = compiled.querySelector('h3') || null;
+    expect(h3 && h3.textContent).toBe('Drag & Zoom II');
   }));
 
 });

@@ -1,0 +1,19 @@
+div.container {
+  background-color: rgb(245, 245, 245);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+h3 {
+  border-bottom: 1px solid #337ab7;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+div.center-block.visualization {
+  background-color: white;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+

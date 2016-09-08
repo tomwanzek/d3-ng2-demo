@@ -29,11 +29,12 @@ describe('Component: WrapperVoronoiSpirals3', () => {
     expect(component).toBeTruthy();
   }));
 
-  it(`should have heading h2 with text 'Voronoi Spirals III Example'`, async(() => {
+  it(`should have heading h2 with text 'Voronoi Spirals III'`, async(() => {
     let fixture = TestBed.createComponent(WrapperVoronoiSpirals3Component);
     // fixture.detectChanges(); // TODO: angular issue https://github.com/angular/angular/issues/10127
     let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toBe('Voronoi Spirals III Example');
+    let h3: HTMLHeadingElement | null = compiled.querySelector('h3') || null;
+    expect(h3 && h3.textContent).toBe('Voronoi Spirals III');
   }));
 
 

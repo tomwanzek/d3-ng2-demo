@@ -1,19 +1,28 @@
-<div class="row">
-  <div class="col-lg-12">
-    <h2>Drag & Zoom II Example</h2>
-    <p>
-      This example is based on <a href="https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084">Mike Bostock's Drag & Zoom II Block</a>.
-    </p>
-    <p>
-      The source code for the Angular 2 Component implementing the block can be found <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/drag-zoom-2">here</a>.
-    </p>
-    Toggle Layouts: <button class="btn btn-primary" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)"
-      [class.active]="layout === selectedLayout">{{layout.label}}</button>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 class="text-primary">Drag & Zoom II</h3>
+      <h4 class="text-primary">Reference Source</h4>
+      <p>
+        This example is based on <a href="https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084">Mike Bostock's Drag & Zoom II Block</a>.
+      </p>
+      <h4 class="text-primary">Adapted Source Code</h4>
+      <p>
+        The source code for the Angular 2 Component implementing the block can be found <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/drag-zoom-2">here</a>.
+      </p>
+      <h4 class="text-primary">Visualization</h4>
+      <p>
+        Toggle Layouts: <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)"
+          [class.active]="layout === selectedLayout">{{layout.label}}</button>
+      </p>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-lg-12">
-    <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
-      [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="center-block visualization text-center">
+        <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
+          [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
+      </div>
+    </div>
   </div>
 </div>
