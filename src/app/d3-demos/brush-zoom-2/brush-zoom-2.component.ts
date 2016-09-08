@@ -5,6 +5,7 @@
 
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 
+
 import {
   D3Service,
   D3,
@@ -20,12 +21,11 @@ import {
 
 
 @Component({
-  selector: 'app-test-brush-zoom-2',
-  templateUrl: './test-brush-zoom-2.component.html',
-  styleUrls: ['./test-brush-zoom-2.component.css']
+  selector: 'app-brush-zoom-2',
+  template: '<svg width="960" height="600"></svg>',
+  styleUrls: ['./brush-zoom-2.component.css']
 })
-export class TestBrushZoom2Component implements OnInit, OnDestroy {
-
+export class BrushZoom2Component implements OnInit, OnDestroy {
   private d3: D3;
   private parentNativeElement: any;
 
@@ -170,5 +170,6 @@ export class TestBrushZoom2Component implements OnInit, OnDestroy {
 
 
   }
+
 
 }

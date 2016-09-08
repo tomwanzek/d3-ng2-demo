@@ -8,11 +8,11 @@ import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { D3Service, D3, RGBColor, Selection, Timer, VoronoiPolygon } from 'd3-ng2-service';
 
 @Component({
-  selector: 'app-test-voronoi-spirals-3',
-  templateUrl: './test-voronoi-spirals-3.component.html',
-  styleUrls: ['./test-voronoi-spirals-3.component.css']
+  selector: 'app-voronoi-spirals-3',
+  template: '<canvas width="400" height="400"></canvas>',
+  styleUrls: ['./voronoi-spirals-3.component.css']
 })
-export class TestVoronoiSpirals3Component implements OnInit, OnDestroy {
+export class VoronoiSpirals3Component implements OnInit, OnDestroy {
 
   private d3: D3;
   private parentNativeElement: any;

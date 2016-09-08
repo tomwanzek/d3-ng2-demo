@@ -9,6 +9,7 @@
       </div>
     </div>
   </div>
+
   <div class="row">
     <div class="col-lg-12">
       <h2>Background</h2>
@@ -37,12 +38,9 @@
       </p>
     </div>
   </div>
-  <app-test-brush-zoom-2></app-test-brush-zoom-2>
-  <app-test-voronoi-spirals-3></app-test-voronoi-spirals-3>
-  <app-test-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius" [pointRadius]="selectedLayout.pointRadius"></app-test-drag-zoom-2>
-  <div class="row">
-    <div class="col-lg-12">
-      Toggle Layouts: <button class="btn btn-primary" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout">{{layout.label}}</button>
-    </div>
-  </div>
+
+  <app-wrapper-brush-zoom-2></app-wrapper-brush-zoom-2>
+  <app-wrapper-drag-zoom-2></app-wrapper-drag-zoom-2>
+  <app-wrapper-voronoi-spirals-3></app-wrapper-voronoi-spirals-3>
+
 </div>

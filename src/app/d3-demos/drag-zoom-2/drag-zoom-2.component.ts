@@ -8,12 +8,13 @@ import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChang
 import { D3Service, D3, D3DragEvent, D3ZoomEvent, Selection } from 'd3-ng2-service';
 import { phyllotaxis, PhyllotaxisPoint } from '../shared';
 
+
 @Component({
-  selector: 'app-test-drag-zoom-2',
-  templateUrl: './test-drag-zoom-2.component.html',
-  styleUrls: ['./test-drag-zoom-2.component.css']
+  selector: 'app-drag-zoom-2',
+  template: '<svg></svg>',
+  styleUrls: ['./drag-zoom-2.component.css']
 })
-export class TestDragZoom2Component implements OnInit, OnChanges, OnDestroy {
+export class DragZoom2Component implements OnInit, OnChanges, OnDestroy {
 
   @Input() width: number = 400;
   @Input() height: number = 400;

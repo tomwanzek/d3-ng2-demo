@@ -3,17 +3,18 @@
 import { TestBed, async } from '@angular/core/testing';
 import { Component } from '@angular/core';
 
-import { TestDragZoom2Component } from './test-drag-zoom-2.component';
-import { DragZoom2Layout } from '../../app.component';
+import { DragZoom2Component } from './drag-zoom-2.component';
+import { DragZoom2Layout } from '../wrapper-drag-zoom-2/wrapper-drag-zoom-2.component';
 
 
 import { D3Service, D3 } from 'd3-ng2-service';
 
-describe('Component: TestDragZoom2', () => {
+describe('Component: DragZoom2', () => {
+
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        TestDragZoom2Component,
+        DragZoom2Component,
         AppMockComponent
       ],
       providers: [
@@ -26,13 +27,6 @@ describe('Component: TestDragZoom2', () => {
     let fixture = TestBed.createComponent(AppMockComponent);
     let component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
-  }));
-
-  it(`should have heading h2 with text 'Drag & Zoom II (SVG) Example'`, async(() => {
-    let fixture = TestBed.createComponent(AppMockComponent);
-    fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h2').textContent).toBe('Drag & Zoom II Example');
   }));
 
   it(`should have exactly one SVGSVGElement with dimensions 400x400 in initial 'small' layout`, async(() => {
@@ -71,12 +65,12 @@ describe('Component: TestDragZoom2', () => {
 
 @Component({
   selector: 'app-mock-component',
-  template: `<app-test-drag-zoom-2
+  template: `<app-drag-zoom-2
   [width]="selectedLayout.width"
   [height]="selectedLayout.height"
   [phylloRadius]="selectedLayout.phylloRadius"
   [pointRadius]="selectedLayout.pointRadius">
-  </app-test-drag-zoom-2>`
+  </app-drag-zoom-2>`
 })
 class AppMockComponent {
 
