@@ -29,35 +29,63 @@ describe('Component: DragZoom2', () => {
     expect(component).toBeTruthy();
   }));
 
-  it(`should have exactly one SVGSVGElement with dimensions 400x400 in initial 'small' layout`, async(() => {
-    let fixture = TestBed.createComponent(AppMockComponent);
-    fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    let svgElements = <NodeListOf<SVGCircleElement>>compiled.querySelectorAll('svg');
-    expect(svgElements.length).toBe(1, 'Incorrect number of svg elements found');
-    expect(svgElements[0].clientWidth).toBe(400, 'Incorrect svg width');
-    expect(svgElements[0].clientHeight).toBe(400, 'Incorrect svg height');
+  it('should have a d3 member with relevant D3 functionality', async(() => {
+    let fixture = TestBed.createComponent(DragZoom2Component);
+    // HACK: Do not type component allows testing of private properties
+    let component = fixture.debugElement.componentInstance;
+    let d3: D3 | undefined = component.d3;
+    expect(d3).toBeTruthy('No member d3 defined');
+    if (d3) {
+      expect(d3.drag && typeof d3.drag === 'function').toBeTruthy('Member function drag() of d3 not defined');
+      expect(d3.zoom && typeof d3.zoom === 'function').toBeTruthy('Member function zoom() of d3 not defined');
+    }
   }));
 
-  it(`should have exactly one SVGSVGElement with dimensions 600x600 after change to 'large' layout`, async(() => {
+
+  it(`should have exactly one "svg" with dimensions 400x400 in 'small' layout`, async(() => {
+    let fixture = TestBed.createComponent(AppMockComponent);
+    fixture.detectChanges();
+    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
+    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
+    let svgElements: NodeListOf<SVGSVGElement>;
+    if (compiled) {
+      svgElements = compiled.querySelectorAll('svg');
+      expect(svgElements.length).toBe(1, 'Incorrect number of svg elements found');
+      if (svgElements.length === 1) {
+        expect(svgElements[0].clientWidth).toBe(400, 'Incorrect svg width');
+        expect(svgElements[0].clientHeight).toBe(400, 'Incorrect svg height');
+      }
+    }
+  }));
+
+  it(`should have exactly one "svg" with dimensions 600x600 after change to 'large' layout`, async(() => {
     let fixture = TestBed.createComponent(AppMockComponent);
     let component = fixture.debugElement.componentInstance;
     fixture.detectChanges();
     component.selectedLayout = component.dragZoom2Layouts[1];
     fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    let svgElements = <NodeListOf<SVGCircleElement>>compiled.querySelectorAll('svg');
-    expect(svgElements.length).toBe(1, 'Incorrect number of svg elements found');
-    expect(svgElements[0].clientWidth).toBe(600, 'Incorrect svg width');
-    expect(svgElements[0].clientHeight).toBe(600, 'Incorrect svg height');
+    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
+    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
+    let svgElements: NodeListOf<SVGSVGElement>;
+    if (compiled) {
+      svgElements = compiled.querySelectorAll('svg');
+      expect(svgElements.length).toBe(1, 'Incorrect number of svg elements found');
+      if (svgElements.length === 1) {
+        expect(svgElements[0].clientWidth).toBe(600, 'Incorrect svg width');
+        expect(svgElements[0].clientHeight).toBe(600, 'Incorrect svg height');
+      }
+    }
   }));
 
 
-  it('should have 2000 SVGCircleElements', async(() => {
+  it('should have 2000 "sg:circle" elements', async(() => {
     let fixture = TestBed.createComponent(AppMockComponent);
     fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelectorAll('circle').length).toBe(2000);
+    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
+    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
+    if (compiled) {
+      expect(compiled.querySelectorAll('circle').length).toBe(2000);
+    }
   }));
 
 });

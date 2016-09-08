@@ -21,7 +21,7 @@ describe('App: D3Ng2Demo', () => {
     expect(app).toBeTruthy();
   }));
 
-  it(`should have as title 'D3 Demo'`, async(() => {
+  it(`should have as title member with value 'D3 Demo'`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('D3 Demo');
@@ -37,22 +37,31 @@ describe('App: D3Ng2Demo', () => {
   it(`should contain an 'app-wrapper-brush-zoom-2' component`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-wrapper-brush-zoom-2')).toBeTruthy();
+    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
+    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
+    if (compiled) {
+      expect(compiled.querySelector('app-wrapper-brush-zoom-2')).toBeTruthy();
+    }
   }));
 
   it(`should contain an 'app-wrapper-drag-zoom-2' component`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-wrapper-drag-zoom-2')).toBeTruthy();
+    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
+    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
+    if (compiled) {
+      expect(compiled.querySelector('app-wrapper-drag-zoom-2')).toBeTruthy();
+    }
   }));
 
   it(`should contain an 'app-wrapper-voronoi-spirals-3' component`, async(() => {
     let fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    let compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('app-wrapper-voronoi-spirals-3')).toBeTruthy();
+    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
+    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
+    if (compiled) {
+      expect(compiled.querySelector('app-wrapper-voronoi-spirals-3')).toBeTruthy();
+    }
   }));
 
 
