@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  public title = 'D3 Demo';
+  public title = 'D3 Angular 2 Demo';
 
 
   constructor() { }

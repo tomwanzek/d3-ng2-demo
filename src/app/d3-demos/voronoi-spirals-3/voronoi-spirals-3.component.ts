@@ -9,8 +9,7 @@ import { D3Service, D3, RGBColor, Selection, Timer, VoronoiPolygon } from 'd3-ng
 
 @Component({
   selector: 'app-voronoi-spirals-3',
-  template: '<canvas width="400" height="400"></canvas>',
-  styleUrls: ['./voronoi-spirals-3.component.css']
+  template: '<canvas width="400" height="400"></canvas>'
 })
 export class VoronoiSpirals3Component implements OnInit, OnDestroy {
 
@@ -29,7 +28,7 @@ export class VoronoiSpirals3Component implements OnInit, OnDestroy {
 
   ngOnInit() {
     let d3 = this.d3;
-    let d3ParentElement: Selection<any, any, any, any>;
+    let d3ParentElement: Selection<HTMLElement, any, null, undefined>;
     let canvas: HTMLCanvasElement;
     let context: CanvasRenderingContext2D;
     let width: number;

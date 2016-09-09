@@ -1,21 +1,58 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col col-lg-12">
       <h3 class="text-primary">Voronoi Spirals III</h3>
-      <h4 class="text-primary">Reference Source</h4>
-      <p>
-        This example is based on <a href="https://bl.ocks.org/mbostock/c677b9bb3c926ba13f3a902acb006b0c">Mike Bostock's Voronoi Spirals III Block</a>.
-      </p>
-      <h4 class="text-primary">Adapted Source Code</h4>
-      <p>
-        The source code for the Angular 2 Component implementing the block can be found <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/voronoi-spirals-3">here</a>.
-      </p>
-      <h4 class="text-primary">Visualization</h4>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12">
-      <div class="center-block visualization text-center">
+    <div class="col col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12">
+      <p class="text-info">
+        Demonstrate how to:
+      </p>
+      <ul class="text-info">
+        <li>
+          build an Angular 2 component which uses a D3 service to render to <code>&lt;canvas&gt;</code>,
+        </li>
+        <li>
+          use D3 version 4 in TypeScript for Voronoi polygons.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-6 col-md-6 col-sm-12">
+      <h4 class="text-primary">Reference</h4>
+      <p>
+        This example is based on <b>Mike Bostock's Voronoi Spirals III Block</b>. The original source with its supporting
+        explanation can be found by following the link below.
+      </p>
+      <p>
+        <em>Source:</em> <a href="https://bl.ocks.org/mbostock/c677b9bb3c926ba13f3a902acb006b0c">https://bl.ocks.org/mbostock/c677b9bb3c926ba13f3a902acb006b0c</a>.
+      </p>
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-12">
+      <h4 class="text-primary">D3 Angular 2 Implementation</h4>
+      <p>
+        The implementation is a straightforward Angular 2 component without any inputs. Its template is a <code>&lt;canvas&gt;</code>        element with fixed dimensions. The component renders the visualization using the <code>d3</code> instance provided
+        by the injected <code>D3Service</code>.
+      </p>
+      <p>
+        The D3 component can be embedded into a parent component using the following tag:
+      </p>
+      <p>
+        <code>&lt;app-voronoi-spirals-3&gt;&lt;/app-voronoi-spirals-3&gt;</code>.
+      </p>
+      <p>
+        The source code for the D3 component can be found at:
+      </p>
+      <p>
+        <em>Source:</em> <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/voronoi-spirals-3">https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/voronoi-spirals-3</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-12">
+      <div class="visualization">
         <app-voronoi-spirals-3></app-voronoi-spirals-3>
       </div>
     </div>

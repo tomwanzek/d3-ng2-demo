@@ -35,7 +35,7 @@ export class WrapperDragZoom2Component implements OnInit {
       width: 600,
       height: 600,
       phylloRadius: 7,
-      pointRadius: 2.5
+      pointRadius: 4
     }
   ];
 

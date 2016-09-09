@@ -1,8 +1,13 @@
 div.container {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(245, 250, 245);
   margin-top: 10px;
   margin-bottom: 10px;
   border-radius: 10px;
+}
+
+div.col {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 h3 {
@@ -11,9 +16,14 @@ h3 {
   margin-bottom: 20px;
 }
 
-div.center-block.visualization {
+div.visualization {
+  display: block;
   background-color: white;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  width: intrinsic;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  max-width: 100%;
+  margin: 10px auto 15px auto;
+  overflow-x: auto;
 }
 

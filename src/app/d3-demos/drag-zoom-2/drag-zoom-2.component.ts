@@ -1,6 +1,9 @@
 /**
  * This component is an adaptation of the "Drag & Zoom II" Example provided by
  * Mike Bostock at https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084
+ *
+ * The implementation has been modified to illustrate the use of inputs to control
+ * the layout of the D3 visualization.
  */
 
 import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChange } from '@angular/core';
@@ -11,8 +14,7 @@ import { phyllotaxis, PhyllotaxisPoint } from '../shared';
 
 @Component({
   selector: 'app-drag-zoom-2',
-  template: '<svg></svg>',
-  styleUrls: ['./drag-zoom-2.component.css']
+  template: '<svg></svg>'
 })
 export class DragZoom2Component implements OnInit, OnChanges, OnDestroy {
 
@@ -23,8 +25,8 @@ export class DragZoom2Component implements OnInit, OnChanges, OnDestroy {
 
   private d3: D3;
   private parentNativeElement: any;
-  private d3Svg: Selection<SVGSVGElement, any, any, any>;
-  private d3G: Selection<SVGGElement, any, any, any>;
+  private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
+  private d3G: Selection<SVGGElement, any, null, undefined>;
   private points: PhyllotaxisPoint[];
 
   constructor(element: ElementRef, d3Service: D3Service) {
@@ -47,22 +49,24 @@ export class DragZoom2Component implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.d3Svg.selectAll('*').remove();
+    if (this.d3Svg.empty && !this.d3Svg.empty()) {
+      this.d3Svg.selectAll('*').remove();
+    }
   }
 
   ngOnInit() {
     let d3 = this.d3;
-    let d3ParentElement: Selection<any, any, any, any>;
-    let g: Selection<SVGGElement, any, any, any>;
+    let d3ParentElement: Selection<HTMLElement, any, null, undefined>;
+    let d3G: Selection<SVGGElement, any, null, undefined>;
 
 
     function zoomed(this: SVGSVGElement) {
-      let e = <D3ZoomEvent<SVGSVGElement, any>>d3.event;
-      g.attr('transform', e.transform.toString());
+      let e: D3ZoomEvent<SVGSVGElement, any> = d3.event;
+      d3G.attr('transform', e.transform.toString());
     }
 
     function dragged(this: SVGCircleElement, d: PhyllotaxisPoint) {
-      let e = <D3DragEvent<SVGCircleElement, PhyllotaxisPoint, PhyllotaxisPoint>>d3.event;
+      let e: D3DragEvent<SVGCircleElement, PhyllotaxisPoint, PhyllotaxisPoint> = d3.event;
       d3.select(this).attr('cx', d.x = e.x).attr('cy', d.y = e.y);
     }
 
@@ -78,7 +82,7 @@ export class DragZoom2Component implements OnInit, OnChanges, OnDestroy {
 
       this.points = d3.range(2000).map(phyllotaxis(this.width, this.height, this.phylloRadius));
 
-      g = this.d3G = this.d3Svg.append<SVGGElement>('g');
+      d3G = this.d3G = this.d3Svg.append<SVGGElement>('g');
 
       this.d3G.selectAll<SVGCircleElement, any>('circle')
         .data(this.points)

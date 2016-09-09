@@ -1,25 +1,84 @@
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
+    <div class="col col-lg-12">
       <h3 class="text-primary">Drag & Zoom II</h3>
-      <h4 class="text-primary">Reference Source</h4>
-      <p>
-        This example is based on <a href="https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084">Mike Bostock's Drag & Zoom II Block</a>.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-12">
+      <p class="text-info">
+        Demonstrate how to:
       </p>
-      <h4 class="text-primary">Adapted Source Code</h4>
+      <ul class="text-info">
+        <li>
+          build an Angular 2 component which uses a D3 service to render to <code>&lt;svg&gt;</code>,
+        </li>
+        <li>
+          use D3 version 4 in TypeScript to handle of drag and zoom/pan events, and
+        </li>
+        <li>
+          use Angular 2 to manage input changes to a reusable D3 component.
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-6 col-md-6 col-sm-12">
+      <h4 class="text-primary">Reference</h4>
       <p>
-        The source code for the Angular 2 Component implementing the block can be found <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/drag-zoom-2">here</a>.
+        This example is based on <b>Mike Bostock's Drag & Zoom II Block</b>. The original source with its supporting explanation
+        can be found by following the link below.
       </p>
-      <h4 class="text-primary">Visualization</h4>
       <p>
-        Toggle Layouts: <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)"
-          [class.active]="layout === selectedLayout">{{layout.label}}</button>
+        <em>Source:</em> <a href="https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084">https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084</a>.
+      </p>
+    </div>
+    <div class="col col-lg-6 col-md-6 col-sm-12">
+      <h4 class="text-primary">D3 Angular 2 Implementation</h4>
+      <p>
+        The implementation is an Angular 2 component with inputs.
+      </p>
+      <p>
+        The component supports inputs controlling key layout determinants: <em>height</em>, <em>width</em>, the <em>radius of the phyllotaxis layout</em>,
+        and the <em>point radius</em>. Its template is a plain <code>&lt;svg&gt;</code> element.
+      </p>
+      <p>
+        The component renders the visualization using the <code>d3</code> instance provided by the injected <code>D3Service</code>.
+        When input values change, the visualization is redrawn.
+      </p>
+      <p>
+        The D3 component can be embedded into a parent component using the following tag:
+      </p>
+      <p>
+        <code>&lt;app-drag-zoom-2 [width]="960" [height]="500" [phylloRadius]="10" [pointRadius]="2.5"&gt;&lt;/app-drag-zoom-2&gt;</code>.
+      </p>
+      <p>
+        The numeric example inputs above reflect the choices of the reference source. However, in true Angular 2 manner the component
+        is reusable and can obtain input values from parent component properties, as shown below.
+      </p>
+      <p>
+        The source code for the D3 component and its parent component can be found at:
+      </p>
+      <p>
+        <em>Source:</em> <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/drag-zoom-2">https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/drag-zoom-2</a>.
+      </p>
+      <p>
+        <em>Source:</em> <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/wrapper-drag-zoom-2">https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/wrapper-drag-zoom-2</a>.
       </p>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12">
-      <div class="center-block visualization text-center">
+    <div class="col col-lg-4 col-md-4 col-sm-12">
+      <p class="text-primary text-center">
+        <small>Choose Layout:</small>
+      </p>
+      <div class="text-center">
+         <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)"
+          [class.active]="layout === selectedLayout">{{layout.name}}</button>
+      </div>
+    </div>
+    <div class="col col-lg-8 col-md-8 col-sm-12">
+      <div class="visualization">
         <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
           [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
       </div>

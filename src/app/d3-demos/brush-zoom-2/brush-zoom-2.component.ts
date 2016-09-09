@@ -22,13 +22,12 @@ import {
 
 @Component({
   selector: 'app-brush-zoom-2',
-  template: '<svg width="960" height="600"></svg>',
-  styleUrls: ['./brush-zoom-2.component.css']
+  template: '<svg width="960" height="600"></svg>'
 })
 export class BrushZoom2Component implements OnInit, OnDestroy {
   private d3: D3;
   private parentNativeElement: any;
-
+  private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
 
   constructor(element: ElementRef, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
@@ -36,23 +35,17 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    let d3 = this.d3;
-    let d3ParentElement: Selection<any, any, any, any>;
-    let svg: Selection<SVGSVGElement, any, any, any>;
-
-    d3ParentElement = d3.select(this.parentNativeElement);
-
-    svg = d3ParentElement.select<SVGSVGElement>('svg');
-
-    svg.selectAll('*').remove();
+    if (this.d3Svg.empty && !this.d3Svg.empty()) {
+      this.d3Svg.selectAll('*').remove();
+    }
   }
 
   ngOnInit() {
 
     let d3 = this.d3;
-    let d3ParentElement: Selection<any, any, any, any>;
-    let svg: Selection<SVGSVGElement, any, any, any>;
-    let g: Selection<SVGGElement, any, any, any>;
+    let d3ParentElement: Selection<HTMLElement, any, null, undefined>;
+    let d3Svg: Selection<SVGSVGElement, any, null, undefined>;
+    let d3G: Selection<SVGGElement, any, null, undefined>;
     let width: number;
     let height: number;
     let random: () => number;
@@ -86,7 +79,7 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
       } else {
         x.domain([s[0][0], s[1][0]].map(x.invert, x));
         y.domain([s[1][1], s[0][1]].map(y.invert, y));
-        svg.select<SVGGElement>('.brush').call(brush.move, null);
+        d3Svg.select<SVGGElement>('.brush').call(brush.move, null);
       }
       zoom();
     }
@@ -100,10 +93,10 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
       // This way it can be reused on SVGGElement and SVGCircleElement, although
       // it was defined on the SVGSVGElement.
       // TODO: Update after pending PR with Relaxed constraint is published to DT/@types
-      let t: Transition<any, any, any, any> = svg.transition().duration(750);
-      svg.select<SVGGElement>('.axis--x').transition(t).call(xAxis);
-      svg.select<SVGGElement>('.axis--y').transition(t).call(yAxis);
-      svg.selectAll<SVGCircleElement, [number, number, number]>('circle').transition(t)
+      let t: Transition<any, any, any, any> = d3Svg.transition().duration(750);
+      d3Svg.select<SVGGElement>('.axis--x').transition(t).call(xAxis);
+      d3Svg.select<SVGGElement>('.axis--y').transition(t).call(yAxis);
+      d3Svg.selectAll<SVGCircleElement, [number, number, number]>('circle').transition(t)
         .attr('cx', function (d) { return x(d[0]); })
         .attr('cy', function (d) { return y(d[1]); });
     }
@@ -112,13 +105,12 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
     if (this.parentNativeElement !== null) {
 
       d3ParentElement = d3.select(this.parentNativeElement);
-      svg = d3ParentElement.select<SVGSVGElement>('svg');
+      d3Svg = this.d3Svg = d3ParentElement.select<SVGSVGElement>('svg');
 
-      width = +svg.attr('width');
-      height = +svg.attr('height');
+      width = +d3Svg.attr('width');
+      height = +d3Svg.attr('height');
 
-      g = svg.append<SVGGElement>('g');
-
+      d3G = d3Svg.append<SVGGElement>('g');
       random = d3.randomNormal(0, 0.2);
       sqrt3 = Math.sqrt(3);
       points0 = d3.range(300).map(function (): [number, number, number] { return [random() + sqrt3, random() + 1, 0]; });
@@ -140,7 +132,7 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
       brush = d3.brush().on('end', brushended);
       idleDelay = 350;
 
-      svg.selectAll<SVGCircleElement, any>('circle')
+      d3Svg.selectAll<SVGCircleElement, any>('circle')
         .data(points)
         .enter().append<SVGCircleElement>('circle')
         .attr('cx', function (d) { return x(d[0]); })
@@ -148,28 +140,25 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
         .attr('r', 2.5)
         .attr('fill', function (d) { return z(d[2]); });
 
-      svg.append<SVGGElement>('g')
+      d3Svg.append<SVGGElement>('g')
         .attr('class', 'axis axis--x')
         .attr('transform', 'translate(0,' + (height - 10) + ')')
         .call(xAxis);
 
-      svg.append<SVGGElement>('g')
+      d3Svg.append<SVGGElement>('g')
         .attr('class', 'axis axis--y')
         .attr('transform', 'translate(10,0)')
         .call(yAxis);
 
-      svg.selectAll('.domain')
+      d3Svg.selectAll('.domain')
         .style('display', 'none');
 
-      svg.append<SVGGElement>('g')
+      d3Svg.append<SVGGElement>('g')
         .attr('class', 'brush')
         .call(brush);
 
-
     }
 
-
   }
-
 
 }
