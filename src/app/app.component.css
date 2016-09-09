@@ -1,3 +1,11 @@
 div.jumbotron {
   background-color: rgb(230, 230, 255);
 }
+
+div.jumbotron p {
+  font-size: 14px;
+}
+
+footer a {
+  color: white;
+}
