@@ -1,6 +1,20 @@
-# D3Ng2Demo
+# D3 Angular 2 Demo
+
+[![Build Status](https://travis-ci.org/tomwanzek/d3-ng2-demo.svg?branch=master)](https://travis-ci.org/tomwanzek/d3-ng2-demo)
+
+## Purpose
+
+This project repository contains an **Angular 2** web application which demonstrates the integration with **D3 version 4** in **TypeScript**.
+
+The running web app can be seen at: [d3-ng2-demo Github Page](https://tomwanzek.github.io/d3-ng2-demo/).
+
+It illustrates the use of a _D3 Service_ as a provider for the rendering of **D3** data visualizations implemented as Angular 2 components.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.11-webpack.8.
+
+
+_This Readme is undergoing an update process_
+
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
