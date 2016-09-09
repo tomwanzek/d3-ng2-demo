@@ -1,43 +1,89 @@
-<div class="container">
-
-  <div class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <span class="navbar-brand">
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <span class="navbar-brand">
         {{title}}
         </span>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+
+  <div class="jumbotron">
+    <h1>Visual Power at Scale?</h1>
+    <h3><em>Fuse D3 and Angular 2 in TypeScript</em></h3>
+    <br>
+    <div class="row">
+      <div class="col-lg-3 col-lg-offset-1">
+        <h4>Perfect Storm</h4>
+        <div class="text-justify">
+          <p>
+            Ever wondered, how to build modern web apps with re-usable, interactive data visualization components?
+          </p>
+          <p>
+            The latest incarnation of <b>D3</b> is getting you excited, <b>Angular 2</b> is approaching the landing strip,
+            and you have come to love <b>TypeScript</b> for its promise to develop complex solutions at scale.
+          </p>
+          <p>
+            But integrating all three seems daunting.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <h4>Take Flight</h4>
+        <div class="text-justify">
+          <p>
+            This Angular 2 demo app and its source code repository are intended to get you started.
+          </p>
+          <p>
+            They illustrate how D3 version 4 visualizations can be implemented as Angular 2 components in TypeScript 2.
+          </p>
+          <p>
+            Rather than trying to be exhaustive or writing a lengthy blog post, a select few well-known D3 demo scripts have been adapted
+            to highlight key considerations.
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <h4>Further References</h4>
+        <div>
+          <p>
+            <b>D3 Resources</b><br>
+            <a href="https://d3js.org/">D3 Data Driven Documents (Official Website)</a><br>
+            <a href="https://github.com/d3/d3">D3 on Github</a><br>
+            <a href="https://bl.ocks.org/mbostock">Mike Bostock's D3 Blocks</a><br>
+          </p>
+          <p>
+            <b>Angular 2 Resources</b><br>
+            <a href="https://angular.io/">Angular 2</a>
+          </p>
+          <p>
+            <b>Source Code Resources for this App</b><br>
+            <a href="https://github.com/tomwanzek/d3-ng2-demo">App Github Repo</a><br>
+            <a href="https://github.com/tomwanzek/d3-ng2-service">D3Service Github Repo</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-lg-12">
-      <h2>Background</h2>
-      <p>
-        This Angular 2 App is intended as a very short demo illustrating the use of a D3 Service in conjunction with Angular 2 components.
-      </p>
-      <p>
-        The visualizations below are adaptations of popular examples provided by Mike Bostock. They are simply intended to show how
-        D3 version 4 can be used when building Angular 2 components. The implementations have been left close to the original
-        to allow cross-referencing as a learning aid. However, changes naturally arise due to:
-      </p>
-      <ul>
-        <li>
-          the structure of Angular 2 components,
-        </li>
-        <li>
-          the use of TypeScript, and
-        </li>
-        <li>
-          the migration of some of the examples to D3 version 4.
-        </li>
-      </ul>
 
+</div>
+
+<app-wrapper-brush-zoom-2></app-wrapper-brush-zoom-2>
+<app-wrapper-drag-zoom-2></app-wrapper-drag-zoom-2>
+<app-wrapper-voronoi-spirals-3></app-wrapper-voronoi-spirals-3>
+
+<footer class="container-fluid">
+  <div class="row">
+    <div class="text-center col-lg-12">
       <p>
-        The complete source code of this demo can be found on Github at <a href="https://github.com/tomwanzek/d3-ng2-demo">tomwanzek/d3-ng2-demo</a>.
+        Copyright &copy; 2016 Thomas Wanzek.
+      </p>
+      <p>
+        <em>Released under MIT License. For licensing information please refer to the github repository underlying this website. The repository can be found at:</em>
+        <a href="https://github.com/tomwanzek/d3-ng2-demo">https://github.com/tomwanzek/d3-ng2-demo</a>
       </p>
     </div>
   </div>
-  <app-test-brush-zoom-2></app-test-brush-zoom-2>
-  <app-test-voronoi-spirals-3></app-test-voronoi-spirals-3>
-  <app-test-drag-zoom-2></app-test-drag-zoom-2>
-</div>
+</footer>
