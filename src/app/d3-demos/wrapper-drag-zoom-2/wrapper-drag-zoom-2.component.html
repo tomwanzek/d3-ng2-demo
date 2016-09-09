@@ -68,16 +68,37 @@
     </div>
   </div>
   <div class="row">
-    <div class="col col-lg-4 col-md-4 col-sm-12">
-      <p class="text-primary text-center">
-        <small>Choose Layout:</small>
-      </p>
-      <div class="text-center">
-         <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)"
-          [class.active]="layout === selectedLayout">{{layout.name}}</button>
+    <div class="col col-lg-5 col-md-5 col-sm-12">
+      <div class="well well-sm">
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="4" class="text-center">
+                <small><em>Choose Layout:</em></small>
+                <div class="btn-group">
+                  <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout">{{layout.name}}</button>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="info">Width</th>
+              <td>{{selectedLayout.width}}</td>
+              <th class="info">Height</th>
+              <td>{{selectedLayout.height}}</td>
+            </tr>
+            <tr>
+              <th class="info">Radius (Phyllotaxis)</th>
+              <td>{{selectedLayout.phylloRadius}}</td>
+              <th class="info">Radius (Point)</th>
+              <td>{{selectedLayout.pointRadius}}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="col col-lg-8 col-md-8 col-sm-12">
+    <div class="col col-lg-7 col-md-7 col-sm-12">
       <div class="visualization">
         <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
           [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
