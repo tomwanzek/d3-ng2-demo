@@ -89,11 +89,7 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
     }
 
     function zoom() {
-      // HACK: Define transition againt Group Element type `any`
-      // This way it can be reused on SVGGElement and SVGCircleElement, although
-      // it was defined on the SVGSVGElement.
-      // TODO: Update after pending PR with Relaxed constraint is published to DT/@types
-      let t: Transition<any, any, any, any> = d3Svg.transition().duration(750);
+      let t: Transition<SVGSVGElement, any, null, undefined> = d3Svg.transition().duration(750);
       d3Svg.select<SVGGElement>('.axis--x').transition(t).call(xAxis);
       d3Svg.select<SVGGElement>('.axis--y').transition(t).call(yAxis);
       d3Svg.selectAll<SVGCircleElement, [number, number, number]>('circle').transition(t)
