@@ -10,7 +10,7 @@ The running web app can be seen at: [d3-ng2-demo Github Page](https://tomwanzek.
 
 It illustrates the use of a _D3 Service_ as a provider for the rendering of **D3** data visualizations implemented as Angular 2 components.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.11-webpack.8.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
 
 
 _This Readme is undergoing an update process_
