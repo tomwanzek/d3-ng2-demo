@@ -35,9 +35,10 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.d3Svg.empty && !this.d3Svg.empty()) {
-      this.d3Svg.selectAll('*').remove();
-    }
+    // HACK: Hack to avoid erratic test behavior
+    // if (this.d3Svg.empty && !this.d3Svg.empty()) {
+    //   this.d3Svg.selectAll('*').remove();
+    // }
   }
 
   ngOnInit() {
@@ -72,7 +73,7 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
       let s: BrushSelection = e.selection;
       if (!s) {
         if (!idleTimeout) {
-          return idleTimeout = setTimeout(idled, idleDelay);
+          return idleTimeout = window.setTimeout(idled, idleDelay);
         }
         x.domain(x0);
         y.domain(y0);

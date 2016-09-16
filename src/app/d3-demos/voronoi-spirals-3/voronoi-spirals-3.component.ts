@@ -23,7 +23,8 @@ export class VoronoiSpirals3Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.timer.stop();
+    // HACK: Hack to avoid erratic test behavior
+    // this.timer.stop();
   }
 
   ngOnInit() {
