@@ -1,59 +1,67 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
+
 import { WrapperVoronoiSpirals3Component } from './wrapper-voronoi-spirals-3.component';
 
-import { VoronoiSpirals3Component } from '../voronoi-spirals-3/voronoi-spirals-3.component';
-import { D3Service, D3 } from 'd3-ng2-service';
+let fixture: ComponentFixture<WrapperVoronoiSpirals3Component>;
+let component: WrapperVoronoiSpirals3Component;
+let compiled: HTMLElement | null;
 
-// TODO: The test for this component are subject to angular issue https://github.com/angular/angular/issues/10127
+@Component({
+  selector: 'app-voronoi-spirals-3',
+  template: `<canvas></canvas>`
+})
+class MockChildComponent {};
 
 describe('Component: WrapperVoronoiSpirals3', () => {
 
   beforeEach(() => {
+
     TestBed.configureTestingModule({
       declarations: [
         WrapperVoronoiSpirals3Component,
-        VoronoiSpirals3Component
-      ],
-      providers: [
-        D3Service
+        MockChildComponent
       ]
     });
+
+    fixture = TestBed.createComponent(WrapperVoronoiSpirals3Component);
+    component = fixture.componentInstance;
+
+    fixture.detectChanges();
+
+    compiled = fixture.debugElement.nativeElement;
+
   });
 
   it('should create the component', async(() => {
-    let fixture = TestBed.createComponent(WrapperVoronoiSpirals3Component);
-    // fixture.detectChanges(); // TODO: angular issue https://github.com/angular/angular/issues/10127
-    let component = fixture.debugElement.componentInstance;
     expect(component).toBeTruthy();
   }));
 
   it(`should have a div with class 'container' as its only child HTMLElement`, async(() => {
-    let fixture = TestBed.createComponent(WrapperVoronoiSpirals3Component);
-    // fixture.detectChanges(); // TODO: angular issue https://github.com/angular/angular/issues/10127
-    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
-    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
-    if (compiled) {
-      expect(compiled.children.length).toBe(1, 'Incorrect number of children.');
-      expect(compiled.children[0].tagName === 'div' || compiled.tagName === 'DIV').toBeTruthy('Not a "div" element.');
-      expect(compiled.children[0].classList.contains('container')).toBeTruthy('Not of class "container".');
+    let nativeEls: HTMLCollection | undefined[];
+    nativeEls = compiled ? compiled.children : [];
+    expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
+    if (nativeEls.length === 1) {
+      expect(nativeEls[0].tagName === 'div' || nativeEls[0].tagName === 'DIV').toBeTruthy('Not a "div" element.');
+      expect(nativeEls[0].classList.contains('container')).toBeTruthy('Not of class "container".');
     }
   }));
 
   it(`should have heading h3 with text 'Voronoi Spirals III'`, async(() => {
-    let fixture = TestBed.createComponent(WrapperVoronoiSpirals3Component);
-    // fixture.detectChanges(); // TODO: angular issue https://github.com/angular/angular/issues/10127
-    let compiled: HTMLDivElement = fixture.debugElement.nativeElement;
-    let h3: HTMLHeadingElement | null;
-    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
-    if (compiled) {
-      h3 = compiled.querySelector('h3') || null;
-      expect(h3).toBeTruthy('Unable to find h3 heading element');
+    let nativeEls: NodeListOf<HTMLHeadingElement> | undefined[];
+    nativeEls = compiled ? compiled.querySelectorAll('h3') : [];
+    expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
+    if (nativeEls.length === 1) {
+      let nativeEl = nativeEls[0];
+      expect(nativeEl.textContent).toBe('Voronoi Spirals III');
     }
-    if (compiled && h3) {
-      expect(h3.textContent).toBe('Voronoi Spirals III');
-    }
+  }));
+
+  it(`should contain an 'app-voronoi-spirals-3' component`, async(() => {
+    expect(fixture.debugElement.query(By.css('app-voronoi-spirals-3'))).not.toBeNull('Missing.');
   }));
 
 
