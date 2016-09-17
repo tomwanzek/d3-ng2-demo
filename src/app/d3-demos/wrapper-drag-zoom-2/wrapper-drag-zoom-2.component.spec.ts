@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { WrapperDragZoom2Component } from './wrapper-drag-zoom-2.component';
@@ -35,11 +35,11 @@ describe('Component: WrapperDragZoom2', () => {
 
   });
 
-  it('should create the mock test component', async(() => {
+  it('should create the mock test component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it(`should have a div with class 'container' as its only child HTMLElement`, async(() => {
+  it(`should have a div with class 'container' as its only child HTMLElement`, () => {
     let nativeEls: HTMLCollection | undefined[];
     nativeEls = compiled ? compiled.children : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
@@ -47,9 +47,9 @@ describe('Component: WrapperDragZoom2', () => {
       expect(nativeEls[0].tagName === 'div' || nativeEls[0].tagName === 'DIV').toBeTruthy('Not a "div" element.');
       expect(nativeEls[0].classList.contains('container')).toBeTruthy('Not of class "container".');
     }
-  }));
+  });
 
-  it(`should have heading h3 with text 'Drag & Zoom II'`, async(() => {
+  it(`should have heading h3 with text 'Drag & Zoom II'`, () => {
     let nativeEls: NodeListOf<HTMLHeadingElement> | undefined[];
     nativeEls = compiled ? compiled.querySelectorAll('h3') : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
@@ -57,10 +57,10 @@ describe('Component: WrapperDragZoom2', () => {
       let nativeEl = nativeEls[0];
       expect(nativeEl.textContent).toBe('Drag & Zoom II');
     }
-  }));
+  });
 
-  it(`should contain an 'app-drag-zoom-2' component`, async(() => {
+  it(`should contain an 'app-drag-zoom-2' component`, () => {
     expect(fixture.debugElement.query(By.css('app-drag-zoom-2'))).not.toBeNull('Missing.');
-  }));
+  });
 
 });

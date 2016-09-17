@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -53,34 +53,34 @@ describe('App: D3Ng2Demo', () => {
 
   });
 
-  it('should create the app', async(() => {
+  it('should create the app', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it(`should have as title member with value 'D3 Angular 2 Demo'`, async(() => {
+  it(`should have as title member with value 'D3 Angular 2 Demo'`, () => {
     expect(component.title).toEqual('D3 Angular 2 Demo');
-  }));
+  });
 
-  it(`should render title 'D3 Angular 2 Demo' in a span of class 'navbar-brand'`, async(() => {
+  it(`should render title 'D3 Angular 2 Demo' in a span of class 'navbar-brand'`, () => {
     let debugEl = fixture.debugElement.query(By.css('span.navbar-brand'));
     expect(debugEl).not.toBeNull('Missing.');
     if (debugEl) {
       let nativeEl: HTMLSpanElement = debugEl.nativeElement;
       expect(nativeEl.textContent).toContain('D3 Angular 2 Demo');
     }
-  }));
+  });
 
-  it(`should contain an 'app-wrapper-brush-zoom-2' component`, async(() => {
+  it(`should contain an 'app-wrapper-brush-zoom-2' component`, () => {
     expect(fixture.debugElement.query(By.css('app-wrapper-brush-zoom-2'))).not.toBeNull('Missing.');
-  }));
+  });
 
-  it(`should contain an 'app-wrapper-drag-zoom-2' component`, async(() => {
+  it(`should contain an 'app-wrapper-drag-zoom-2' component`, () => {
     expect(fixture.debugElement.query(By.css('app-wrapper-drag-zoom-2'))).not.toBeNull('Missing.');
-  }));
+  });
 
-  it(`should contain an 'app-wrapper-voronoi-spirals-3' component`, async(() => {
+  it(`should contain an 'app-wrapper-voronoi-spirals-3' component`, () => {
     expect(fixture.debugElement.query(By.css('app-wrapper-voronoi-spirals-3'))).not.toBeNull('Missing.');
-  }));
+  });
 
 
 });

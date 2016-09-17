@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 
 import { DragZoom2Component } from './drag-zoom-2.component';
@@ -78,11 +78,11 @@ describe('Component: DragZoom2', () => {
 
   });
 
-  it('should create the mock test component', async(() => {
+  it('should create the mock test component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it(`should have exactly one "svg" with dimensions 400x400 in 'small' layout`, async(() => {
+  it(`should have exactly one "svg" with dimensions 400x400 in 'small' layout`, () => {
     let nativeEls: NodeListOf<SVGSVGElement> | undefined[];
     nativeEls = compiled ? compiled.querySelectorAll('svg') : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
@@ -91,9 +91,9 @@ describe('Component: DragZoom2', () => {
       expect(nativeEl.clientWidth).toBe(400, 'Incorrect width');
       expect(nativeEl.clientHeight).toBe(400, 'Incorrect height');
     }
-  }));
+  });
 
-  it(`should have exactly one "svg" with dimensions 600x600 after change to 'large' layout`, async(() => {
+  it(`should have exactly one "svg" with dimensions 600x600 after change to 'large' layout`, () => {
     let nativeEls: NodeListOf<SVGSVGElement> | undefined[];
     component.selectedLayout = component.dragZoom2Layouts[1];
     fixture.detectChanges();
@@ -105,14 +105,14 @@ describe('Component: DragZoom2', () => {
       expect(nativeEl.clientWidth).toBe(600, 'Incorrect width');
       expect(nativeEl.clientHeight).toBe(600, 'Incorrect height');
     }
-  }));
+  });
 
 
-  it('should have 2000 "svg:circle" elements', async(() => {
+  it('should have 2000 "svg:circle" elements', () => {
     let nativeEls: NodeListOf<SVGCircleElement> | undefined[];
     nativeEls = compiled ? compiled.querySelectorAll('circle') : [];
     expect(nativeEls.length).toBe(2000, 'Incorrect number of elements found');
-  }));
+  });
 
 });
 

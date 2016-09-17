@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { VoronoiSpirals3Component } from './voronoi-spirals-3.component';
 
@@ -33,11 +33,11 @@ describe('Component: VoronoiSpirals3', () => {
 
   });
 
-  it('should create the component', async(() => {
+  it('should create the component', () => {
     expect(component).toBeTruthy();
-  }));
+  });
 
-  it('should have exactly one "canvas" element with dimensions 400x400', async(() => {
+  it('should have exactly one "canvas" element with dimensions 400x400', () => {
     let nativeEls: NodeListOf<HTMLCanvasElement> | undefined[];
     nativeEls = compiled ? compiled.querySelectorAll('canvas') : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
@@ -47,6 +47,6 @@ describe('Component: VoronoiSpirals3', () => {
       expect(nativeEl.clientHeight).toBe(400, 'Incorrect height');
     }
 
-  }));
+  });
 
 });
