@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 
 import { DragZoom2Component } from './drag-zoom-2.component';
@@ -9,86 +9,11 @@ import { DragZoom2Layout } from '../wrapper-drag-zoom-2/wrapper-drag-zoom-2.comp
 
 import { D3Service, D3 } from 'd3-ng2-service';
 
-describe('Component: DragZoom2', () => {
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [
-        DragZoom2Component,
-        AppMockComponent
-      ],
-      providers: [
-        D3Service
-      ]
-    });
-  });
+let fixture: ComponentFixture<AppMockComponent>;
+let component: AppMockComponent;
+let compiled: HTMLElement | null;
 
-  it('should create the mock test component', async(() => {
-    let fixture = TestBed.createComponent(AppMockComponent);
-    let component = fixture.debugElement.componentInstance;
-    expect(component).toBeTruthy();
-  }));
-
-  it('should have a d3 member with relevant D3 functionality', async(() => {
-    let fixture = TestBed.createComponent(DragZoom2Component);
-    // HACK: Do not type component allows testing of private properties
-    let component = fixture.debugElement.componentInstance;
-    let d3: D3 | undefined = component.d3;
-    expect(d3).toBeTruthy('No member d3 defined');
-    if (d3) {
-      expect(d3.drag && typeof d3.drag === 'function').toBeTruthy('Member function drag() of d3 not defined');
-      expect(d3.zoom && typeof d3.zoom === 'function').toBeTruthy('Member function zoom() of d3 not defined');
-    }
-  }));
-
-
-  it(`should have exactly one "svg" with dimensions 400x400 in 'small' layout`, async(() => {
-    let fixture = TestBed.createComponent(AppMockComponent);
-    fixture.detectChanges();
-    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
-    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
-    let svgElements: NodeListOf<SVGSVGElement>;
-    if (compiled) {
-      svgElements = compiled.querySelectorAll('svg');
-      expect(svgElements.length).toBe(1, 'Incorrect number of svg elements found');
-      if (svgElements.length === 1) {
-        expect(svgElements[0].clientWidth).toBe(400, 'Incorrect svg width');
-        expect(svgElements[0].clientHeight).toBe(400, 'Incorrect svg height');
-      }
-    }
-  }));
-
-  it(`should have exactly one "svg" with dimensions 600x600 after change to 'large' layout`, async(() => {
-    let fixture = TestBed.createComponent(AppMockComponent);
-    let component = fixture.debugElement.componentInstance;
-    fixture.detectChanges();
-    component.selectedLayout = component.dragZoom2Layouts[1];
-    fixture.detectChanges();
-    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
-    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
-    let svgElements: NodeListOf<SVGSVGElement>;
-    if (compiled) {
-      svgElements = compiled.querySelectorAll('svg');
-      expect(svgElements.length).toBe(1, 'Incorrect number of svg elements found');
-      if (svgElements.length === 1) {
-        expect(svgElements[0].clientWidth).toBe(600, 'Incorrect svg width');
-        expect(svgElements[0].clientHeight).toBe(600, 'Incorrect svg height');
-      }
-    }
-  }));
-
-
-  it('should have 2000 "sg:circle" elements', async(() => {
-    let fixture = TestBed.createComponent(AppMockComponent);
-    fixture.detectChanges();
-    let compiled: HTMLElement | null = fixture.debugElement.nativeElement;
-    expect(compiled).toBeTruthy('Component compilation does not return valid nativeElement');
-    if (compiled) {
-      expect(compiled.querySelectorAll('circle').length).toBe(2000);
-    }
-  }));
-
-});
 
 
 @Component({
@@ -128,3 +53,66 @@ class AppMockComponent {
   }
 
 }
+
+
+describe('Component: DragZoom2', () => {
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [
+        DragZoom2Component,
+        AppMockComponent
+      ],
+      providers: [
+        D3Service
+      ]
+    });
+
+    fixture = TestBed.createComponent(AppMockComponent);
+    component = fixture.componentInstance;
+
+    fixture.detectChanges();
+
+    compiled = fixture.debugElement.nativeElement;
+
+
+  });
+
+  it('should create the mock test component', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it(`should have exactly one "svg" with dimensions 400x400 in 'small' layout`, () => {
+    let nativeEls: NodeListOf<SVGSVGElement> | undefined[];
+    nativeEls = compiled ? compiled.querySelectorAll('svg') : [];
+    expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
+    if (nativeEls.length === 1) {
+      let nativeEl = nativeEls[0];
+      expect(nativeEl.clientWidth).toBe(400, 'Incorrect width');
+      expect(nativeEl.clientHeight).toBe(400, 'Incorrect height');
+    }
+  });
+
+  it(`should have exactly one "svg" with dimensions 600x600 after change to 'large' layout`, () => {
+    let nativeEls: NodeListOf<SVGSVGElement> | undefined[];
+    component.selectedLayout = component.dragZoom2Layouts[1];
+    fixture.detectChanges();
+    compiled = fixture.debugElement.nativeElement;
+    nativeEls = compiled ? compiled.querySelectorAll('svg') : [];
+    expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
+    if (nativeEls.length === 1) {
+      let nativeEl = nativeEls[0];
+      expect(nativeEl.clientWidth).toBe(600, 'Incorrect width');
+      expect(nativeEl.clientHeight).toBe(600, 'Incorrect height');
+    }
+  });
+
+
+  it('should have 2000 "svg:circle" elements', () => {
+    let nativeEls: NodeListOf<SVGCircleElement> | undefined[];
+    nativeEls = compiled ? compiled.querySelectorAll('circle') : [];
+    expect(nativeEls.length).toBe(2000, 'Incorrect number of elements found');
+  });
+
+});
+

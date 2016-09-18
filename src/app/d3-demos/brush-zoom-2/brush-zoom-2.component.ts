@@ -35,10 +35,9 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // HACK: Hack to avoid erratic test behavior
-    // if (this.d3Svg.empty && !this.d3Svg.empty()) {
-    //   this.d3Svg.selectAll('*').remove();
-    // }
+    if (this.d3Svg.empty && !this.d3Svg.empty()) {
+      this.d3Svg.selectAll('*').remove();
+    }
   }
 
   ngOnInit() {
