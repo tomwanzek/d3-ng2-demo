@@ -76,7 +76,10 @@
               <th colspan="4" class="text-center">
                 <small><em>Choose Layout:</em></small>
                 <span class="btn-group">
-                  <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout">{{layout.name}}</button>
+                  <button class="btn btn-primary btn-sm" *ngFor="let layout of dragZoom2Layouts"
+                  (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout" [ngClass]="'layout-' + layout.name">
+                    {{layout.name}}
+                  </button>
                 </span>
               </th>
             </tr>

@@ -3,7 +3,7 @@
  * Mike Bostock at https://bl.ocks.org/mbostock/f48fcdb929a620ed97877e4678ab15e6
  */
 
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnDestroy, OnInit } from '@angular/core';
 
 
 import {
@@ -29,7 +29,7 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
   private parentNativeElement: any;
   private d3Svg: Selection<SVGSVGElement, any, null, undefined>;
 
-  constructor(element: ElementRef, d3Service: D3Service) {
+  constructor(element: ElementRef, private ngZone: NgZone, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
   }
@@ -41,7 +41,7 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    let self = this;
     let d3 = this.d3;
     let d3ParentElement: Selection<HTMLElement, any, null, undefined>;
     let d3Svg: Selection<SVGSVGElement, any, null, undefined>;
@@ -66,13 +66,15 @@ export class BrushZoom2Component implements OnInit, OnDestroy {
     let idleTimeout: number | null;
     let idleDelay: number;
 
-
     function brushended(this: SVGGElement) {
       let e = <D3BrushEvent<any>>d3.event;
       let s: BrushSelection = e.selection;
       if (!s) {
         if (!idleTimeout) {
-          return idleTimeout = window.setTimeout(idled, idleDelay);
+          self.ngZone.runOutsideAngular(() => {
+            idleTimeout = window.setTimeout(idled, idleDelay);
+          });
+          return idleTimeout;
         }
         x.domain(x0);
         y.domain(y0);

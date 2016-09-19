@@ -3,7 +3,7 @@
  * Mike Bostock at https://bl.ocks.org/mbostock/c677b9bb3c926ba13f3a902acb006b0c
  */
 
-import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, NgZone, OnDestroy, OnInit } from '@angular/core';
 
 import { D3Service, D3, RGBColor, Selection, Timer, VoronoiPolygon } from 'd3-ng2-service';
 
@@ -17,13 +17,15 @@ export class VoronoiSpirals3Component implements OnInit, OnDestroy {
   private parentNativeElement: any;
   private timer: Timer;
 
-  constructor(element: ElementRef, d3Service: D3Service) {
+  constructor(element: ElementRef, private ngZone: NgZone, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
   }
 
   ngOnDestroy() {
-    this.timer.stop();
+    this.ngZone.runOutsideAngular(() => {
+      this.timer.stop();
+    });
   }
 
   ngOnInit() {
@@ -99,18 +101,20 @@ export class VoronoiSpirals3Component implements OnInit, OnDestroy {
 
       context.clearRect(0, 0, width, height);
 
-      this.timer = d3.timer(function (elapsed) {
-        for (let i = 0, y = 0; y < height; ++y) {
-          for (let x = 0; x < width; ++x, i += 4) {
-            let c = colors[Math.floor(source[i] + elapsed / 10) % 256];
-            target[i + 0] = c.r;
-            target[i + 1] = c.g;
-            target[i + 2] = c.b;
+      this.ngZone.runOutsideAngular(() => {
+        this.timer = d3.timer(function (elapsed) {
+          for (let i = 0, y = 0; y < height; ++y) {
+            for (let x = 0; x < width; ++x, i += 4) {
+              let c = colors[Math.floor(source[i] + elapsed / 10) % 256];
+              target[i + 0] = c.r;
+              target[i + 1] = c.g;
+              target[i + 2] = c.b;
+            }
           }
-        }
-        context.putImageData(targetBuffer, 0, 0);
-      });
-
+          context.putImageData(targetBuffer, 0, 0);
+        });
+      }
+      )
 
     }
   }
