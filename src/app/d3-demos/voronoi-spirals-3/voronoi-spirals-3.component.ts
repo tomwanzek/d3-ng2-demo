@@ -113,8 +113,7 @@ export class VoronoiSpirals3Component implements OnInit, OnDestroy {
           }
           context.putImageData(targetBuffer, 0, 0);
         });
-      }
-      )
+      });
 
     }
   }

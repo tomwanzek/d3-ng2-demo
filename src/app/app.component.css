@@ -6,6 +6,13 @@ div.jumbotron p {
   font-size: 14px;
 }
 
-footer a {
-  color: white;
+div.jumbotron img {
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  background-color: #222;
+  color: #eee;
 }
