@@ -1,8 +1,9 @@
-# D3 Angular 2 Demo
+# Reusable Visual Power?
 
 [![Build Status](https://travis-ci.org/tomwanzek/d3-ng2-demo.svg?branch=master)](https://travis-ci.org/tomwanzek/d3-ng2-demo)
 
-## Purpose
+## Fuse D3 and Angular 2 in TypeScript (A Demo)
+
 
 This project repository contains an **Angular 2** web application which demonstrates the integration with **D3 version 4** in **TypeScript**.
 
@@ -10,36 +11,39 @@ The running web app can be seen at: [d3-ng2-demo Github Page](https://tomwanzek.
 
 It illustrates the use of a _D3 Service_ as a provider for the rendering of **D3** data visualizations implemented as Angular 2 components.
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14.
 
 
-_This Readme is undergoing an update process_
+![Screenshot Drag-Zoom-2](https://github.com/tomwanzek/d3-ng2-demo/blob/master/screenshots/demo=drag-zoom-2-screenshot.png)
 
 
-## Development server
+## Explore this Project Locally
+
+This project was generated with **[angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.14**.
+
+### Installation
+
+
+
+### Development Server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-## Running unit tests
+### Running Unit Tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+### Running End-to-End Tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). 
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
+### Further Help
 
 To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
