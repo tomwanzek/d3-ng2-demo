@@ -5,12 +5,25 @@
 ## Fuse D3 and Angular 2 in TypeScript (A Demo)
 
 
-This project repository contains an **Angular 2** web application which demonstrates the integration with **D3 version 4** in **TypeScript**.
+Ever wondered, how to build modern web apps with reusable, interactive data visualization components?
 
-The running web app can be seen at: [d3-ng2-demo Github Page](https://tomwanzek.github.io/d3-ng2-demo/).
+The latest incarnation of **[D3](https://d3js.org/)** is getting you excited about new destinations. **[Angular 2](https://angular.io/)** is finally on the tarmac. [**TypeScript**](https://github.com/midrosoft/typescript) has become the fuel that lets you develop complex solutions at scale.
 
-It illustrates the use of a _D3 Service_ as a provider for the rendering of **D3** data visualizations implemented as Angular 2 components.
+Integrating all three, however, seems as daunting as taking off in the perfect storm.
 
+This Angular 2 demo app is intended to get you started. Rather than trying to be exhaustive or writing a lengthy blog post, a select few well-known D3 demo scripts have been adapted to highlight key considerations:
+
+* use an Angular 2 Service to inject the power of D3 version 4 into a project,
+
+* explore how D3 visualizations can be implemented as Angular 2 components in TypeScript 2,
+
+* see how a visualization component can change in response to input data changes,
+
+* find ways to unit test your D3 components with Karma/Jasmine, and
+
+* check out an example end-to-end test using Protractor.
+
+_The running web app can be seen at:_ **[d3-ng2-demo Github Page](https://tomwanzek.github.io/d3-ng2-demo/)**.
 
 
 ![Screenshot Drag-Zoom-2](https://github.com/tomwanzek/d3-ng2-demo/blob/master/screenshots/demo=drag-zoom-2-screenshot.png)
@@ -22,7 +35,14 @@ This project was generated with **[angular-cli](https://github.com/angular/angul
 
 ### Installation
 
+In order to explore the project locally:
 
+1. clone this git repository using `git clone https://github.com/tomwanzek/d3-ng2-demo.git`,
+2. change into the project directory `cd d3-ng2-demo`, and
+3. run `npm install`.
+
+Now you are ready to explore the source code and use the features provided by **angular-cli** for your convenience.
+A brief overview of the command line support provided by angular-cli is sketched out in the following subsections.
 
 ### Development Server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
