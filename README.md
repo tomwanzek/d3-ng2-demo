@@ -26,7 +26,7 @@ This Angular 2 demo app is intended to get you started. Rather than trying to be
 _The running web app can be seen at:_ **[d3-ng2-demo Github Page](https://tomwanzek.github.io/d3-ng2-demo/)**.
 
 
-![Screenshot Drag-Zoom-2](https://github.com/tomwanzek/d3-ng2-demo/blob/master/screenshots/demo=drag-zoom-2-screenshot.png)
+![Screenshot Drag-Zoom-2](./screenshots/d3-ng2-demo-screenshot-2.png)
 
 
 ## Explore this Project Locally
