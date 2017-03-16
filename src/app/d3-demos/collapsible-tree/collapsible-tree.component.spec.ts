@@ -22,15 +22,29 @@ describe('CollapsibleTreeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CollapsibleTreeComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    component.data = {
+      'name': 'Top Level',
+      'children': [
+        {
+          'name': 'Level 2: A',
+          'children': [
+            { 'name': 'Son of A' },
+            { 'name': 'Daughter of A' }
+          ]
+        },
+        { 'name': 'Level 2: B' }
+      ]
+    };
     compiled = fixture.debugElement.nativeElement;
   });
 
-  it('should create', () => {
+  it('should create', async(() => {
+    fixture.detectChanges();
     expect(component).toBeTruthy();
-  });
+  }));
 
-  it('should have exactly one "svg" element with dimensions 960x500', () => {
+  it('should have exactly one "svg" element with dimensions 960x500', async(() => {
+    fixture.detectChanges();
     let nativeEls: NodeListOf<SVGSVGElement> | undefined[];
     nativeEls = compiled ? compiled.querySelectorAll('svg') : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
@@ -39,11 +53,12 @@ describe('CollapsibleTreeComponent', () => {
       expect(nativeEl.clientWidth).toBe(960, 'Incorrect width');
       expect(nativeEl.clientHeight).toBe(500, 'Incorrect height');
     }
-  });
+  }));
 
-  it('should have 3 "svg:circle" elements', () => {
+  it('should have 3 "svg:circle" elements', async(() => {
+    fixture.detectChanges();
     let nativeEls: NodeListOf<SVGCircleElement> | undefined[];
     nativeEls = compiled ? compiled.querySelectorAll('circle') : [];
     expect(nativeEls.length).toBe(3, 'Incorrect number of elements found');
-  });  
+  }));
 });

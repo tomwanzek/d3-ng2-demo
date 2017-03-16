@@ -8,7 +8,7 @@ import { D3Service, D3, Selection, HierarchyNode } from 'd3-ng2-service';
   encapsulation: ViewEncapsulation.None
 })
 export class CollapsibleTreeComponent implements OnInit {
-  @Input() private data: any;
+  @Input() public data: any;
   private d3: D3;
   private parentNativeElement: any;
   private tree: any;
