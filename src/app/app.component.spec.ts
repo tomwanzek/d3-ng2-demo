@@ -30,6 +30,11 @@ class MockChild2Component { }
 })
 class MockChild3Component { }
 
+@Component({
+  selector: 'app-wrapper-collapsible-tree',
+  template: `<div></div>`
+})
+class MockChild4Component { }
 
 describe('App: D3Ng2Demo', () => {
 
@@ -40,7 +45,8 @@ describe('App: D3Ng2Demo', () => {
           AppComponent,
           MockChild1Component,
           MockChild2Component,
-          MockChild3Component
+          MockChild3Component,
+          MockChild4Component
         ]
       });
 
@@ -82,5 +88,8 @@ describe('App: D3Ng2Demo', () => {
     expect(fixture.debugElement.query(By.css('app-wrapper-voronoi-spirals-3'))).not.toBeNull('Missing.');
   });
 
+  it(`should contain an 'app-wrapper-collapsible-tree' component`, () => {
+    expect(fixture.debugElement.query(By.css('app-wrapper-collapsible-tree'))).not.toBeNull('Missing.');
+  });
 
 });

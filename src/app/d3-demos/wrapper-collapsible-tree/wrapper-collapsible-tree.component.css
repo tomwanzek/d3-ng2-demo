@@ -1,0 +1,28 @@
+div.container {
+  background-color: rgb(245, 250, 245);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+div.col {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+h3 {
+  border-bottom: 1px solid #337ab7;
+  padding-top: 10px;
+  margin-bottom: 20px;
+}
+
+div.visualization {
+  display: block;
+  background-color: white;
+  width: intrinsic;
+  width: -moz-max-content;
+  width: -webkit-max-content;
+  max-width: 100%;
+  margin: 10px auto 15px auto;
+  overflow-x: auto;
+}
