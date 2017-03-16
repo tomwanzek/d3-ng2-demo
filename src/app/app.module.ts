@@ -12,6 +12,8 @@ import { VoronoiSpirals3Component } from './d3-demos/voronoi-spirals-3/voronoi-s
 import { WrapperBrushZoom2Component } from './d3-demos/wrapper-brush-zoom-2/wrapper-brush-zoom-2.component';
 import { WrapperDragZoom2Component } from './d3-demos/wrapper-drag-zoom-2/wrapper-drag-zoom-2.component';
 import { WrapperVoronoiSpirals3Component } from './d3-demos/wrapper-voronoi-spirals-3/wrapper-voronoi-spirals-3.component';
+import { CollapsibleTreeComponent } from './d3-demos/collapsible-tree/collapsible-tree.component';
+import { WrapperCollapsibleTreeComponent } from './d3-demos/wrapper-collapsible-tree/wrapper-collapsible-tree.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { WrapperVoronoiSpirals3Component } from './d3-demos/wrapper-voronoi-spir
     VoronoiSpirals3Component,
     WrapperBrushZoom2Component,
     WrapperDragZoom2Component,
-    WrapperVoronoiSpirals3Component
+    WrapperVoronoiSpirals3Component,
+    CollapsibleTreeComponent,
+    WrapperCollapsibleTreeComponent
   ],
   imports: [
     BrowserModule,
