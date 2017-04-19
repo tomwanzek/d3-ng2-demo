@@ -57,16 +57,16 @@ describe('App: D3Ng2Demo', () => {
     expect(component).toBeTruthy();
   });
 
-  it(`should have as title member with value 'D3 Angular 2 Demo'`, () => {
-    expect(component.title).toEqual('D3 Angular 2 Demo');
+  it(`should have as title member with value 'D3 Angular Demo'`, () => {
+    expect(component.title).toEqual('D3 Angular Demo');
   });
 
-  it(`should render title 'D3 Angular 2 Demo' in a span of class 'navbar-brand'`, () => {
+  it(`should render title 'D3 Angular Demo' in a span of class 'navbar-brand'`, () => {
     let debugEl = fixture.debugElement.query(By.css('span.navbar-brand'));
     expect(debugEl).not.toBeNull('Missing.');
     if (debugEl) {
       let nativeEl: HTMLSpanElement = debugEl.nativeElement;
-      expect(nativeEl.textContent).toContain('D3 Angular 2 Demo');
+      expect(nativeEl.textContent).toContain('D3 Angular Demo');
     }
   });
 

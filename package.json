@@ -1,10 +1,10 @@
 {
   "name": "d3-ng2-demo",
-  "version": "0.1.1",
-  "description": "An Angular 2 app which demonstrates the implementation of D3 version 4 components.",
+  "version": "0.2.0",
+  "description": "An Angular app which demonstrates the implementation of D3 version 4 components.",
   "keywords": [
     "D3",
-    "Angular 2",
+    "Angular",
     "Demo",
     "D3 Service",
     "D3 Components"
@@ -14,51 +14,50 @@
     "name": "Thomas Wanzek",
     "url": "https://github.com/tomwanzek"
   },
-  "angular-cli": {},
   "scripts": {
+    "ng": "ng",
     "start": "ng serve",
-    "lint": "tslint \"src/**/*.ts\"",
+    "build": "ng build",
     "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/tomwanzek/d3-ng2-demo"
   },
   "dependencies": {
-    "@angular/common": "2.2.1",
-    "@angular/compiler": "2.2.1",
-    "@angular/core": "2.2.1",
-    "@angular/forms": "2.2.1",
-    "@angular/http": "2.2.1",
-    "@angular/platform-browser": "2.2.1",
-    "@angular/platform-browser-dynamic": "2.2.1",
-    "@angular/router": "3.2.1",
-    "bootstrap": "^3.3.7",
+    "@angular/common": "4.0.2",
+    "@angular/compiler": "4.0.2",
+    "@angular/core": "4.0.2",
+    "@angular/forms": "4.0.2",
+    "@angular/http": "4.0.2",
+    "@angular/platform-browser": "4.0.2",
+    "@angular/platform-browser-dynamic": "4.0.2",
+    "@angular/router": "4.0.2",
+    "bootstrap": "3.3.7",
     "core-js": "^2.4.1",
-    "d3-ng2-service": "^1.4.0",
-    "rxjs": "5.0.0-beta.12",
-    "ts-helpers": "^1.1.1",
-    "zone.js": "^0.6.23"
+    "d3-ng2-service": "1.9.0",
+    "rxjs": "5.3.0",
+    "zone.js": "0.8.5"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "2.2.1",
+    "@angular/cli": "1.0.0",
+    "@angular/compiler-cli": "4.0.2",
     "@types/jasmine": "2.5.38",
-    "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.21",
-    "codelyzer": "~1.0.0-beta.3",
+    "@types/node": "~6.0.60",
+    "codelyzer": "2.0.1",
     "jasmine-core": "2.5.2",
-    "jasmine-spec-reporter": "2.5.0",
-    "karma": "1.2.0",
-    "karma-chrome-launcher": "^2.0.0",
-    "karma-cli": "^1.0.1",
-    "karma-jasmine": "^1.0.2",
-    "karma-remap-istanbul": "^0.2.1",
-    "protractor": "4.0.9",
-    "ts-node": "1.2.1",
-    "tslint": "3.13.0",
-    "typescript": "~2.0.3",
-    "webdriver-manager": "10.2.5"
+    "jasmine-spec-reporter": "3.2.0",
+    "karma": "1.4.1",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-cli": "1.0.1",
+    "karma-jasmine": "1.1.0",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "karma-coverage-istanbul-reporter": "0.2.3",
+    "protractor": "5.1.1",
+    "ts-node": "2.0.0",
+    "tslint": "4.5.1",
+    "typescript": "2.2.2"
   }
 }

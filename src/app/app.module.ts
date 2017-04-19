@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 
 import { D3Service } from 'd3-ng2-service';
 
@@ -24,9 +22,7 @@ import { WrapperVoronoiSpirals3Component } from './d3-demos/wrapper-voronoi-spir
     WrapperVoronoiSpirals3Component
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule
+    BrowserModule
   ],
   providers: [
     D3Service
