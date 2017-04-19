@@ -1,14 +1,16 @@
 dist: trusty
-sudo: required
-language: node_js
+sudo: false
 
+language: node_js
 node_js:
   - '6'
 
+addons:
+  apt:
+    packages:
+      - google-chrome-stable
+
 before_install:
-  - export CHROME_BIN=chromium-browser
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
   - npm install -g karma
   - npm install -g node-gyp
 
@@ -17,6 +19,9 @@ install:
 
 before_script:
   - ng build
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start &
+  - sleep 3
 
 script:
   - ng test --single-run
