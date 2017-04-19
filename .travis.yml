@@ -20,4 +20,3 @@ before_script:
 
 script:
   - ng test --single-run
-  - ng e2e
