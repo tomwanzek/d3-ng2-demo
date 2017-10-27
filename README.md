@@ -7,7 +7,7 @@
 
 Ever wondered, how to build modern web apps with reusable, interactive data visualization components?
 
-The latest incarnation of **[D3](https://d3js.org/)** is getting you excited about new destinations. **[Angular 2](https://angular.io/)** arrived on the tarmac and has since been rolled into a stable release management cycle. [**TypeScript**](https://github.com/midrosoft/typescript) has become the fuel that lets you develop complex solutions at scale.
+The latest incarnation of **[D3](https://d3js.org/)** is getting you excited about new destinations. **[Angular 2](https://angular.io/)** arrived on the tarmac and has since been rolled into a stable release management cycle. [**TypeScript**](https://github.com/microsoft/typescript) has become the fuel that lets you develop complex solutions at scale.
 
 Integrating all three, however, seems as daunting as taking off in the perfect storm.
 
