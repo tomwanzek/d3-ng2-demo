@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+@import './_extra-colors.scss';
+
+@include mat-core();
+
+$sharp-light-primary: mat-palette($mat-indigo, 400, 200, 800);
+$sharp-light-accent:  mat-palette($mat-pink, A200, 100, A700);
+
+$sharp-light-warn:    mat-palette($mat-red);
+
+$sharp-light-theme: mat-light-theme($sharp-light-primary, $sharp-light-accent, $sharp-light-warn);
+
+@include angular-material-theme($sharp-light-theme);
+@include extra-color-classes($sharp-light-theme);

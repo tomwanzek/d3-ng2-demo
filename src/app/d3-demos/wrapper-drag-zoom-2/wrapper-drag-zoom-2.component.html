@@ -1,18 +1,19 @@
 <mat-card>
   <mat-card-header>
-    <div class="mat-headline">
+    <div class="mat-headline extra-primary-darker">
       Drag & Zoom II
     </div>
   </mat-card-header>
   <mat-card-content>
     <div fxLayout="column" fxLayoutAlign="start center">
       <div fxFlex>
-        <p class="mat-caption">
+        <p class="mat-body-1 extra-secondary-text">
           Demonstrate how to:
         </p>
-        <ul class="mat-caption">
+        <ul class="mat-body-1 extra-secondary-text">
           <li>
-            build an Angular component which uses a D3 service to render to <code>&lt;svg&gt;</code>,
+            build an Angular component which uses a D3 service to render to
+            <code class="extra-code">&lt;svg&gt;</code>,
           </li>
           <li>
             use D3 version 4 in TypeScript to handle drag and zoom/pan events, and
@@ -25,33 +26,35 @@
       <div fxFlex>
         <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around start">
           <div fxFlex="45%" [fxFlex.lt-md]="'90%'">
-            <h4 class="mat-headline">Reference</h4>
+            <h4 class="mat-title extra-primary-default">Reference</h4>
             <p class="text-justify">
-              This example is based on <b>Mike Bostock's Drag & Zoom II Block</b>. The original source with its supporting explanation
-              can be found by following the link below.
+              This example is based on
+              <b>Mike Bostock's Drag & Zoom II Block</b>. The original source with its supporting explanation can be found by
+              following the link below.
             </p>
-            <p>
-              <em>Source:</em> <a href="https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084">Drag & Zoom II Block</a>.
-            </p>
+            <em class="extra-secondary-text">Source:</em>
+            <mat-nav-list>
+              <a mat-list-item href="https://bl.ocks.org/mbostock/3127661b6f13f9316be745e77fdfb084">Drag & Zoom II Block</a>
+            </mat-nav-list>
           </div>
           <div fxFlex="45%" [fxFlex.lt-md]="'90%'">
-            <h4 class="mat-headline">D3 Angular Implementation</h4>
+            <h4 class="mat-title extra-primary-default">D3 Angular Implementation</h4>
             <p class="text-justify">
-              The implementation is a straightforward Angular component without any inputs. Its template is an <code>&lt;svg&gt;</code>        element with fixed dimensions. The component renders the visualization using the <code>d3</code> instance provided
-              by the injected <code>D3Service</code>.
+              The implementation is a straightforward Angular component without any inputs. Its template is an
+              <code class="extra-code">&lt;svg&gt;</code> element with fixed dimensions. The component renders the visualization using the
+              <code class="extra-code">d3</code> instance provided by the injected
+              <code class="extra-code">D3Service</code>.
             </p>
             <p class="text-justify">
               The D3 component can be embedded into a parent component using the following tag:
             </p>
             <p>
-              <code>&lt;app-brush-zoom-2&gt;&lt;/app-brush-zoom-2&gt;</code>.
+              <code class="extra-code">&lt;app-brush-zoom-2&gt;&lt;/app-brush-zoom-2&gt;</code>.
             </p>
-            <p class="text-justify">
-              The source code for the D3 component can be found at:
-            </p>
-            <p>
-              <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/brush-zoom-2">Brush Zoom II D3 Component</a>.
-            </p>
+            <em class="extra-secondary-text">The source code for the D3 component can be found at:</em>
+            <mat-nav-list>
+              <a mat-list-item href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/src/app/d3-demos/brush-zoom-2">Brush Zoom II D3 Component</a>
+            </mat-nav-list>
           </div>
         </div>
       </div>
@@ -63,10 +66,12 @@
         <thead>
           <tr>
             <th colspan="4" class="text-center">
-              <small><em>Choose Layout:</em></small>
+              <small>
+                <em>Choose Layout:</em>
+              </small>
               <span class="btn-group">
-                <button matButton color="primary" *ngFor="let layout of dragZoom2Layouts"
-                (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout" [ngClass]="'layout-' + layout.name">
+                <button matButton color="primary" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout"
+                  [ngClass]="'layout-' + layout.name">
                   {{layout.name}}
                 </button>
               </span>
@@ -91,8 +96,7 @@
     </div>
     <div class="visualization">
       <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
-      [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
+        [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
     </div>
   </mat-card-content>
 </mat-card>
-
