@@ -1,6 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-body {
-  background-color: slateblue;
-  padding-top: 70px;
+html, body {
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  height: 100%;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+
+code {
+  /* TODO: insert formatting for code snippets */
 }

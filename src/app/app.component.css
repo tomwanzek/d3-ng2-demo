@@ -1,18 +1,15 @@
-div.jumbotron {
-  background-color: rgb(230, 230, 255);
+.spacer {
+  flex: 1 1 auto;
 }
 
-div.jumbotron p {
-  font-size: 14px;
-}
-
-div.jumbotron img {
+.splash-image {
   max-height: 400px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-footer {
-  background-color: #222;
-  color: #eee;
+.text-justify p {
+  text-align: justify;
+}
+
+.text-center p {
+  text-align: center;
 }
