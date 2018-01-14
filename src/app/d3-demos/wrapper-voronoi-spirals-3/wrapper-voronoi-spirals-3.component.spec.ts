@@ -65,8 +65,9 @@ describe('Component: WrapperVoronoiSpirals3', () => {
   });
 
   it(`should have headline div with class 'mat-headline' and text content 'Voronoi Spirals III'`, () => {
-    let nativeEls: NodeListOf<HTMLHeadingElement> | undefined[];
-    nativeEls = compiled ? compiled.querySelectorAll('div.mat-headline') : [];
+    let nativeEls: NodeListOf<HTMLDivElement> | HTMLDivElement[];
+    // HACK: Using 'as' due to TS issue with querySelectorAll signature in TS 2.5.3
+    nativeEls = compiled ? compiled.querySelectorAll('div.mat-headline') as NodeListOf<HTMLDivElement> : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
     if (nativeEls.length === 1) {
       const nativeEl = nativeEls[0];
