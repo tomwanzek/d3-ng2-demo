@@ -9,6 +9,7 @@ import { DragZoom2Component } from '../drag-zoom-2/drag-zoom-2.component';
 import { D3Service } from 'd3-ng2-service';
 
 import {
+  MatButtonToggleModule,
   MatCardModule,
   MatListModule
 } from '@angular/material';
@@ -34,6 +35,7 @@ describe('Component: WrapperDragZoom2', () => {
       ],
       imports: [
         FlexLayoutModule,
+        MatButtonToggleModule,
         MatCardModule,
         MatListModule
       ]

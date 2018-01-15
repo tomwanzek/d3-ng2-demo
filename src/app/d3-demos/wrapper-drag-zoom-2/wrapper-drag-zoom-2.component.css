@@ -1,5 +1,5 @@
-.text-justify {
-  text-align: justify;
+.mat-card {
+  margin: 8px;
 }
 
 div.visualization {
@@ -11,4 +11,23 @@ div.visualization {
   max-width: 100%;
   margin: 10px auto 15px auto;
   overflow-x: auto;
+}
+
+.settings-table th {
+  font-weight: bold;
+  text-align: start;
+  padding: 5px;
+}
+
+.settings-table th.text-center {
+  text-align: center;
+}
+
+.settings-table td {
+  text-align: start;
+  padding: 5px;
+}
+
+.text-justify {
+  text-align: justify;
 }

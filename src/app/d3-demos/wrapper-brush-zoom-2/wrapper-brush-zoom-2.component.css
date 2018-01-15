@@ -1,5 +1,5 @@
-.text-justify {
-  text-align: justify;
+.mat-card {
+  margin: 8px;
 }
 
 div.visualization {
@@ -13,3 +13,6 @@ div.visualization {
   overflow-x: auto;
 }
 
+.text-justify {
+  text-align: justify;
+}

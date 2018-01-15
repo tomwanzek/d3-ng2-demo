@@ -58,43 +58,46 @@
       </div>
     </div>
     <!-- TODO: Improve responsive flow of settings table and actual visualization using flex-layout -->
-    <div>
-      <!-- TODO: Refactor/reformat table to use material -->
-      <table class="table">
-        <thead>
-          <tr>
-            <th colspan="4" class="text-center">
-              <small>
-                <em>Choose Layout:</em>
-              </small>
-              <span class="btn-group">
-                <button matButton color="primary" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout"
-                  [ngClass]="'layout-' + layout.name">
-                  {{layout.name}}
-                </button>
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th class="info">Width</th>
-            <td>{{selectedLayout.width}}</td>
-            <th class="info">Height</th>
-            <td>{{selectedLayout.height}}</td>
-          </tr>
-          <tr>
-            <th class="info">Radius (Phyllotaxis)</th>
-            <td>{{selectedLayout.phylloRadius}}</td>
-            <th class="info">Radius (Point)</th>
-            <td>{{selectedLayout.pointRadius}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="visualization">
-      <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
-        [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
+    <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-around start">
+      <div fxFlex="45%" [fxFlex.lt-md]="'90%'">
+        <table class="settings-table">
+          <thead>
+            <tr>
+              <th colspan="4" class="text-center">
+                <span class="mat-caption extra-hint-text">
+                  <em>Choose Layout:</em>
+                </span>
+                <mat-button-toggle-group [value]="selectedLayout.name">
+                    <mat-button-toggle color="primary" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout"
+                    [ngClass]="'layout-' + layout.name" [value]="layout.name">
+                    {{layout.name}}
+                </mat-button-toggle>
+                </mat-button-toggle-group>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="extra-inverted-accent-lighter-bg">Width</th>
+              <td>{{selectedLayout.width}}</td>
+              <th class="extra-inverted-accent-lighter-bg">Height</th>
+              <td>{{selectedLayout.height}}</td>
+            </tr>
+            <tr>
+              <th class="extra-inverted-accent-lighter-bg">Radius (Phyllotaxis)</th>
+              <td>{{selectedLayout.phylloRadius}}</td>
+              <th class="extra-inverted-accent-lighter-bg">Radius (Point)</th>
+              <td>{{selectedLayout.pointRadius}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div fxFlex="45%" [fxFlex.lt-md]="'90%'">
+        <div class="visualization">
+          <app-drag-zoom-2 [width]="selectedLayout.width" [height]="selectedLayout.height" [phylloRadius]="selectedLayout.phylloRadius"
+            [pointRadius]="selectedLayout.pointRadius"></app-drag-zoom-2>
+        </div>
+      </div>
     </div>
   </mat-card-content>
 </mat-card>

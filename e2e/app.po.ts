@@ -11,7 +11,7 @@ export class D3Ng2DemoPage {
   }
 
   getLayoutButton(buttonText: string) {
-    return element(by.tagName('app-wrapper-drag-zoom-2')).all(by.css('button.layout-' + buttonText));
+    return element(by.tagName('app-wrapper-drag-zoom-2')).all(by.css('mat-button-toggle.layout-' + buttonText));
   }
 
 }

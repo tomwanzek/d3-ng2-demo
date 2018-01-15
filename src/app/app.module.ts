@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
+  MatButtonToggleModule,
   MatCardModule,
   MatListModule,
   MatSidenavModule,
@@ -35,6 +36,7 @@ import { WrapperVoronoiSpirals3Component } from './d3-demos/wrapper-voronoi-spir
     BrowserAnimationsModule,
     FlexLayoutModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatListModule,
     MatSidenavModule,
