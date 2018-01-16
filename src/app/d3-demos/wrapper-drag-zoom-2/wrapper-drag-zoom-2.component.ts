@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-
 export interface DragZoom2Layout {
   name: string;
   label: string;
@@ -38,6 +37,7 @@ export class WrapperDragZoom2Component implements OnInit {
       pointRadius: 4
     }
   ];
+  public selectedLayoutName = 'small';
 
   ngOnInit() {
     if (this.selectedLayout === undefined) {
@@ -48,6 +48,5 @@ export class WrapperDragZoom2Component implements OnInit {
   public onActiveButtonChange(layout: DragZoom2Layout): void {
     this.selectedLayout = layout;
   }
-
 
 }
