@@ -6,6 +6,7 @@ import { By } from '@angular/platform-browser';
 
 import {
   MatButtonModule,
+  MatCardModule,
   MatListModule,
   MatSidenavModule,
   MatToolbarModule
@@ -54,8 +55,9 @@ describe('App: D3Ng2Demo', () => {
           MockChild3Component
         ],
         imports: [
-          MatButtonModule,
           FlexLayoutModule,
+          MatButtonModule,
+          MatCardModule,
           MatListModule,
           MatSidenavModule,
           MatToolbarModule

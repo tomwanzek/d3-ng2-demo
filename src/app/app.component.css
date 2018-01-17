@@ -2,8 +2,14 @@
   flex: 1 1 auto;
 }
 
-.splash-image {
+.mat-card {
+  margin: 10px;
+  text-align: center;
+}
+
+img.splash-image {
   max-height: 400px;
+  max-width:100%;
 }
 
 .text-justify p {
