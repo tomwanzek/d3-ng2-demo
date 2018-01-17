@@ -68,7 +68,7 @@
                 <span class="mat-caption extra-hint-text">
                   <em>Choose Layout:</em>
                 </span>
-                <mat-button-toggle-group ([ngModel])="selectedLayoutName">
+                <mat-button-toggle-group [value]="selectedLayoutName">
                     <mat-button-toggle color="primary" *ngFor="let layout of dragZoom2Layouts" (click)="onActiveButtonChange(layout)" [class.active]="layout === selectedLayout"
                     [ngClass]="'layout-' + layout.name" [value]="layout.name">
                     {{layout.name}}
