@@ -1,0 +1,187 @@
+@import '~@angular/material/theming';
+
+@mixin extra-color-classes($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+
+  .extra-code {
+    color: mat-color($accent, darker);
+    background-color: mat-color($accent, lighter);
+  }
+
+  .extra-text {
+    color: mat-color($foreground, text);
+  }
+
+  .extra-divider {
+    color: mat-color($foreground, divider);
+  }
+
+  .extra-hint-text {
+    color: mat-color($foreground, hint-text);
+  }
+
+  .extra-secondary-text {
+    color: mat-color($foreground, secondary-text);
+  }
+
+  // Primary Colors ---------------------------------------------------
+
+  .extra-primary-default {
+    color: mat-color($primary, default);
+  }
+
+  .extra-primary-lighter {
+    color: mat-color($primary, lighter);
+  }
+
+  .extra-primary-darker {
+    color: mat-color($primary, darker);
+  }
+
+  .extra-primary-default-bg {
+    background-color: mat-color($primary, default-contrast);
+  }
+
+  .extra-primary-lighter-bg {
+    background-color: mat-color($primary, lighter-contrast);
+  }
+
+  .extra-primary-darker-bg {
+    background-color: mat-color($primary, darker-contrast);
+  }
+
+  // Primary Colors Inverted ---------------------------------------------------
+
+  .extra-inverted-primary-default {
+    color: mat-color($primary, default-contrast);
+  }
+
+  .extra-inverted-primary-lighter {
+    color: mat-color($primary, lighter-contrast);
+  }
+
+  .extra-inverted-primary-darker {
+    color: mat-color($primary, darker-contrast);
+  }
+
+  .extra-inverted-primary-default-bg {
+    background-color: mat-color($primary);
+  }
+
+  .extra-inverted-primary-lighter-bg {
+    background-color: mat-color($primary, lighter);
+  }
+
+  .extra-inverted-primary-darker-bg {
+    background-color: mat-color($primary, darker);
+  }
+
+  // Accent Colors ---------------------------------------------------
+
+  .extra-accent-default {
+    color: mat-color($accent, default);
+  }
+
+  .extra-accent-lighter {
+    color: mat-color($accent, lighter);
+  }
+
+  .extra-accent-darker {
+    color: mat-color($accent, darker);
+  }
+
+  .extra-accent-default-bg {
+    background-color: mat-color($accent, default-contrast);
+  }
+
+  .extra-accent-lighter-bg {
+    background-color: mat-color($accent, lighter-contrast);
+  }
+
+  .extra-accent-darker-bg {
+    background-color: mat-color($accent, darker-contrast);
+  }
+
+  // Accent Colors Inverted ---------------------------------------------------
+
+  .extra-inverted-accent-default {
+    color: mat-color($accent, default-contrast);
+  }
+
+  .extra-inverted-accent-lighter {
+    color: mat-color($accent, lighter-contrast);
+  }
+
+  .extra-inverted-accent-darker {
+    color: mat-color($accent, darker-contrast);
+  }
+
+  .extra-inverted-accent-default-bg {
+    background-color: mat-color($accent);
+  }
+
+  .extra-inverted-accent-lighter-bg {
+    background-color: mat-color($accent, lighter);
+  }
+
+  .extra-inverted-accent-darker-bg {
+    background-color: mat-color($accent, darker);
+  }
+
+  // Warn Colors ---------------------------------------------------
+
+  .extra-warn-default {
+    color: mat-color($warn, default);
+  }
+
+  .extra-warn-lighter {
+    color: mat-color($warn, lighter);
+  }
+
+  .extra-warn-darker {
+    color: mat-color($warn, darker);
+  }
+
+  .extra-warn-default-bg {
+    background-color: mat-color($warn, default-contrast);
+  }
+
+  .extra-warn-lighter-bg {
+    background-color: mat-color($warn, lighter-contrast);
+  }
+
+  .extra-warn-darker-bg {
+    background-color: mat-color($warn, darker-contrast);
+  }
+
+  // Warn Colors Inverted ---------------------------------------------------
+
+  .extra-inverted-warn-default {
+    color: mat-color($warn, default-contrast);
+  }
+
+  .extra-inverted-warn-lighter {
+    color: mat-color($warn, lighter-contrast);
+  }
+
+  .extra-inverted-warn-darker {
+    color: mat-color($warn, darker-contrast);
+  }
+
+  .extra-inverted-warn-default-bg {
+    background-color: mat-color($warn);
+  }
+
+  .extra-inverted-warn-lighter-bg {
+    background-color: mat-color($warn, lighter);
+  }
+
+  .extra-inverted-warn-darker-bg {
+    background-color: mat-color($warn, darker);
+  }
+
+}

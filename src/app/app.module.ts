@@ -1,5 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
 
 import { D3Service } from 'd3-ng2-service';
 
@@ -22,7 +32,15 @@ import { WrapperVoronoiSpirals3Component } from './d3-demos/wrapper-voronoi-spir
     WrapperVoronoiSpirals3Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatListModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
   providers: [
     D3Service

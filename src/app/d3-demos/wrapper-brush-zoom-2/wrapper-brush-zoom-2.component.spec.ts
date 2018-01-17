@@ -4,6 +4,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import {
+  MatCardModule,
+  MatListModule
+} from '@angular/material';
+
+import {
+  FlexLayoutModule
+} from '@angular/flex-layout';
+
 import { WrapperBrushZoom2Component } from './wrapper-brush-zoom-2.component';
 
 let fixture: ComponentFixture<WrapperBrushZoom2Component>;
@@ -23,6 +32,11 @@ describe('Component: WrapperBrushZoom2', () => {
       declarations: [
         WrapperBrushZoom2Component,
         MockChildComponent
+      ],
+      imports: [
+        FlexLayoutModule,
+        MatCardModule,
+        MatListModule
       ]
     });
 
@@ -40,22 +54,22 @@ describe('Component: WrapperBrushZoom2', () => {
   });
 
 
-  it(`should have a div with class 'container' as its only child HTMLElement`, () => {
+  it(`should have a mat-card element as its only child DOM Element`, () => {
     let nativeEls: HTMLCollection | undefined[];
     nativeEls = compiled ? compiled.children : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
     if (nativeEls.length === 1) {
-      expect(nativeEls[0].tagName === 'div' || nativeEls[0].tagName === 'DIV').toBeTruthy('Not a "div" element.');
-      expect(nativeEls[0].classList.contains('container')).toBeTruthy('Not of class "container".');
+      expect(nativeEls[0].tagName === 'mat-card' || nativeEls[0].tagName === 'MAT-CARD').toBeTruthy('Not a "mat-card" element.');
     }
   });
 
-  it(`should have heading h3 with text 'Brush & Zoom II'`, () => {
-    let nativeEls: NodeListOf<HTMLHeadingElement> | undefined[];
-    nativeEls = compiled ? compiled.querySelectorAll('h3') : [];
+  it(`should have headline div with class 'mat-headline' and text content 'Brush & Zoom II'`, () => {
+    let nativeEls: NodeListOf<HTMLDivElement> | HTMLDivElement[];
+    // HACK: Using 'as' due to TS issue with querySelectorAll signature in TS 2.5.3
+    nativeEls = compiled ? compiled.querySelectorAll('div.mat-headline') as NodeListOf<HTMLDivElement> : [];
     expect(nativeEls.length).toBe(1, 'Incorrect number of elements found');
     if (nativeEls.length === 1) {
-      let nativeEl = nativeEls[0];
+      const nativeEl = nativeEls[0];
       expect(nativeEl.textContent).toBe('Brush & Zoom II');
     }
   });

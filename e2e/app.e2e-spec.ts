@@ -22,7 +22,7 @@ describe('d3-ng2-demo App', function () {
   it('should have one svg with initial dimensions ' +
   initialDragZoom2Dimensions.width + 'x' + initialDragZoom2Dimensions.height +
   ' in app-drag-zoom-2 component', () => {
-    let svg = page.getComponentElement('app-drag-zoom-2', 'svg');
+    const svg = page.getComponentElement('app-drag-zoom-2', 'svg');
     expect(svg.count()).toEqual(1, 'Incorrect number of elements');
     expect(svg.first().getAttribute('width')).toEqual(initialDragZoom2Dimensions.width + '', 'Incorrect width.');
     expect(svg.first().getAttribute('height')).toEqual(initialDragZoom2Dimensions.height + '', 'Incorrect height.');
@@ -32,13 +32,13 @@ describe('d3-ng2-demo App', function () {
   it('should resize the layout of the Drag & Zoom II visual to '
   + resizedDragZoom2Dimensions.width + 'x' + resizedDragZoom2Dimensions.height +
   ' after pressing "large" button', () => {
-    let button = page.getLayoutButton('large');
+    const button = page.getLayoutButton('large');
 
     expect(button.count()).toEqual(1, 'Incorrect number of "large" buttons');
 
     button.first().click();
 
-    let svg = page.getComponentElement('app-drag-zoom-2', 'svg');
+    const svg = page.getComponentElement('app-drag-zoom-2', 'svg');
     expect(svg.count()).toEqual(1, 'Incorrect number of svg elements');
     expect(svg.first().getAttribute('width')).toEqual(resizedDragZoom2Dimensions.width + '', 'Incorrect width.');
     expect(svg.first().getAttribute('height')).toEqual(resizedDragZoom2Dimensions.height + '', 'Incorrect height.');

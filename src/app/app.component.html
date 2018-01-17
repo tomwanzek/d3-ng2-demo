@@ -1,113 +1,124 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <span class="navbar-brand">
-        <a href="https://github.com/tomwanzek/d3-ng2-demo">{{title}}</a>
-        </span>
+<mat-toolbar color="primary">
+  <span class="toolbar-title">
+    {{title}}
+  </span>
+  <span class="spacer"></span>
+  <a class="uppercase" href="https://github.com/tomwanzek/d3-ng2-demo" mat-button="">
+    <span class="mat-button-wrapper">
+      <img src="assets/GitHub-Mark-Light-32px.png" width="24px" height="24px" /> Github
+    </span>
+  </a>
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="center start">
+    <div fxFlex="90%">
+      <h1 class="mat-display-1 extra-primary-darker">Reusable Visual Power?</h1>
+      <h3 class="mat-headline extra-primary-darker">
+        <em>Fuse D3 and Angular in TypeScript (A Demo)</em>
+      </h3>
     </div>
-  </div>
-</div>
 
-<div class="container-fluid">
-
-  <div class="jumbotron">
-    <h1>Reusable Visual Power?</h1>
-    <h3><em>Fuse D3 and Angular in TypeScript (A Demo)</em></h3>
-    <br>
-    <div class="row">
-      <div class="col-lg-3 col-lg-offset-1">
-        <h4>Perfect Storm</h4>
-        <div class="text-justify">
-          <p>
-            Ever wondered, how to build modern web apps with reusable, interactive data visualization components?
-          </p>
-          <p>
-            The latest incarnation of <b>D3</b> is getting you excited about new destinations.
-          </p>
-          <p>
-            <b>Angular 2</b> arrived on the tarmac and has since been rolled into a stable release management cycle.
-          </p>
-          <p>
-            <b>TypeScript</b> has become the fuel that lets you develop complex solutions at scale.
-          </p>
-          <p>
-            Integrating all three, however, seems as daunting as taking off in the perfect storm.
-          </p>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <!-- insert images -->
-        <img src="assets/d3-ng2-demo-screenshots.png" class="img-responsive" />
-      </div>
-      <div class="col-lg-3">
-        <h4>Take Flight</h4>
-        <div class="text-justify">
-          <p>
-            This Angular demo app and its source code repository are intended to get you started. Rather than trying to be exhaustive
-            or writing a lengthy blog post, a select few well-known D3 demo scripts have been adapted to highlight key considerations.
-          </p>
-          <p>
-            Use an Angular Service to inject the power of D3 version 4 into a project.
-          </p>
-          <p>
-            Explore how D3 visualizations can be implemented as Angular components in TypeScript 2.
-          </p>
-          <p>
-            See how a visualization component can change in response to input data changes.
-          </p>
-          <p>
-            Find ways to unit test your D3 components with Karma/Jasmine and check out a worked example end-to-end test using Protractor.
-          </p>
-        </div>
+    <div fxFlex="30%" [fxFlex.lt-md]="'90%'">
+      <h4 class="mat-title extra-primary-default">Perfect Storm</h4>
+      <div class="text-justify">
+        <p>
+          Ever wondered, how to build modern web apps with reusable, interactive data visualization components?
+        </p>
+        <p>
+          The latest incarnation of
+          <b>D3</b> is getting you excited about new destinations.
+        </p>
+        <p>
+          <b>Angular 2</b> arrived on the tarmac and has since been rolled into a stable release management cycle.
+        </p>
+        <p>
+          <b>TypeScript</b> has become the fuel that lets you develop complex solutions at scale.
+        </p>
+        <p>
+          Integrating all three, however, seems as daunting as taking off in the perfect storm.
+        </p>
       </div>
     </div>
 
-  </div>
+    <div fxFlex="30%" [fxFlex.lt-md]="'90%'">
+      <img class="splash-image" src="assets/d3-ng2-demo-screenshots.png" />
+    </div>
 
-</div>
-
-<app-wrapper-brush-zoom-2></app-wrapper-brush-zoom-2>
-<app-wrapper-drag-zoom-2></app-wrapper-drag-zoom-2>
-<app-wrapper-voronoi-spirals-3></app-wrapper-voronoi-spirals-3>
-
-<footer class="container-fluid">
-  <div class="row">
-    <div class="col-lg-12">
-      <div class="col-lg-4">
-        <h3>Source Code Resources for this App</h3>
-        <div class="well">
-
-          <a href="https://github.com/tomwanzek/d3-ng2-demo">Demo App Github Repo</a><br>
-          <a href="https://github.com/tomwanzek/d3-ng2-service">D3Service Github Repo</a>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <h3>D3 Resources</h3>
-        <div class="well">
-
-          <a href="https://d3js.org/">D3 Data Driven Documents (Official Website)</a><br>
-          <a href="https://github.com/d3/d3">D3 on Github</a><br>
-          <a href="https://bl.ocks.org/mbostock">Mike Bostock's D3 Blocks</a><br>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <h3>Angular Resources</h3>
-        <div class="well">
-          <a href="https://angular.io/">Angular</a><br>
-          <a href="https://github.com/angular/angular-cli/">Angular CLI</a>
-        </div>
+    <div fxFlex="30%" [fxFlex.lt-md]="'90%'">
+      <h4 class="mat-title extra-primary-default">Take Flight</h4>
+      <div class="text-justify">
+        <p>
+          This Angular demo app and its source code repository are intended to get you started. Rather than trying to be exhaustive
+          or writing a lengthy blog post, a select few well-known D3 demo scripts have been adapted to highlight key considerations.
+        </p>
+        <p>
+          Use an Angular Service to inject the power of D3 version 4 into a project.
+        </p>
+        <p>
+          Explore how D3 visualizations can be implemented as Angular components in TypeScript 2.
+        </p>
+        <p>
+          See how a visualization component can change in response to input data changes.
+        </p>
+        <p>
+          Find ways to unit test your D3 components with Karma/Jasmine and check out a worked example end-to-end test using Protractor.
+        </p>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="text-center col-lg-12">
-      <p>
-        Copyright &copy; 2018 Thomas Wanzek.
-      </p>
-      <p>
-        <em>Released under MIT License. For details see:</em>
-        <a href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/LICENSE.txt">https://github.com/tomwanzek/d3-ng2-demo/tree/master/LICENSE</a>
-      </p>
+
+
+  <div fxLayout="row" fxLayoutWrap fxLayoutAlign="center start">
+    <div fxFlex="90%">
+      <app-wrapper-brush-zoom-2></app-wrapper-brush-zoom-2>
+    </div>
+    <div fxFlex="90%">
+      <app-wrapper-drag-zoom-2></app-wrapper-drag-zoom-2>
+    </div>
+    <div fxFlex="90%">
+      <app-wrapper-voronoi-spirals-3></app-wrapper-voronoi-spirals-3>
     </div>
   </div>
-</footer>
+
+  <footer fxLayout="row" fxLayoutWrap fxLayoutAlign="center start">
+    <div fxFlex="90%">
+      <div fxLayout="row" fxLayoutWrap fxLayoutAlign="space-between start">
+        <div fxFlex="30%" [fxFlex.lt-md]="'90%'">
+          <h3 class="mat-headline extra-primary-darker">Source Code Resources for this App</h3>
+          <mat-nav-list>
+            <a mat-list-item href="https://github.com/tomwanzek/d3-ng2-demo">Demo App Github Repo</a>
+            <a mat-list-item href="https://github.com/tomwanzek/d3-ng2-service">D3Service Github Repo</a>
+          </mat-nav-list>
+        </div>
+        <div fxFlex="30%" [fxFlex.lt-md]="'90%'">
+          <h3 class="mat-headline extra-primary-darker">D3 Resources</h3>
+          <mat-nav-list>
+            <a mat-list-item href="https://d3js.org/">D3 Data Driven Documents (Official Website)</a>
+            <a mat-list-item href="https://github.com/d3/d3">D3 on Github</a>
+            <a mat-list-item href="https://bl.ocks.org/mbostock">Mike Bostock's D3 Blocks</a>
+          </mat-nav-list>
+        </div>
+        <div fxFlex="30%" [fxFlex.lt-md]="'90%'">
+          <h3 class="mat-headline extra-primary-darker">Angular Resources</h3>
+          <mat-nav-list>
+            <a mat-list-item href="https://angular.io/">Angular</a>
+            <a mat-list-item href="https://github.com/angular/angular-cli/">Angular CLI</a>
+          </mat-nav-list>
+        </div>
+      </div>
+    </div>
+    <div fxFlex="90%">
+      <div class="text-center">
+        <p class="extra-secondary-text">
+          Copyright &copy; 2018 Thomas Wanzek.
+        </p>
+        <p class="extra-hint-text">
+          Released under MIT License. For details see:
+          <a class="extra-secondary-text" href="https://github.com/tomwanzek/d3-ng2-demo/tree/master/LICENSE.txt">https://github.com/tomwanzek/d3-ng2-demo/tree/master/LICENSE</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+</mat-sidenav-container>

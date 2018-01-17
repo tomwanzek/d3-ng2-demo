@@ -4,6 +4,17 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
+import {
+  MatButtonModule,
+  MatListModule,
+  MatSidenavModule,
+  MatToolbarModule
+} from '@angular/material';
+
+import {
+  FlexLayoutModule
+} from '@angular/flex-layout';
+
 import { AppComponent } from './app.component';
 
 let fixture: ComponentFixture<AppComponent>;
@@ -41,6 +52,13 @@ describe('App: D3Ng2Demo', () => {
           MockChild1Component,
           MockChild2Component,
           MockChild3Component
+        ],
+        imports: [
+          MatButtonModule,
+          FlexLayoutModule,
+          MatListModule,
+          MatSidenavModule,
+          MatToolbarModule
         ]
       });
 
@@ -62,10 +80,10 @@ describe('App: D3Ng2Demo', () => {
   });
 
   it(`should render title 'D3 Angular Demo' in a span of class 'navbar-brand'`, () => {
-    let debugEl = fixture.debugElement.query(By.css('span.navbar-brand'));
+    const debugEl = fixture.debugElement.query(By.css('span.toolbar-title'));
     expect(debugEl).not.toBeNull('Missing.');
     if (debugEl) {
-      let nativeEl: HTMLSpanElement = debugEl.nativeElement;
+      const nativeEl: HTMLSpanElement = debugEl.nativeElement;
       expect(nativeEl.textContent).toContain('D3 Angular Demo');
     }
   });
