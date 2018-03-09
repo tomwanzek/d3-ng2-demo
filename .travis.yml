@@ -1,9 +1,12 @@
 dist: trusty
-sudo: false
+sudo: required
 
 language: node_js
 node_js:
-  - "6"
+  - "8"
+
+addons:
+  chrome: stable
 
 cache:
   directories:
@@ -13,7 +16,5 @@ install:
   - npm install
 
 script:
-  # Use Chromium instead of Chrome.
-  - export CHROME_BIN=chromium-browser
   - xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
   - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
